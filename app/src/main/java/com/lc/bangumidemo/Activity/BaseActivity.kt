@@ -8,13 +8,14 @@ abstract class BaseActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(setRes())
         initview()
-        initlistener()
+
     }
 
 
 
     override fun onStart() {
         super.onStart()
+        initlistener()
         startaction()
     }
 

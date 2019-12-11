@@ -15,6 +15,9 @@ abstract class BaseFragment: Fragment() {
         var view =inflater.inflate(setRes(),container,false)
         return view
     }
+
+
+
     /**
     *初始化初始布局
     */
@@ -22,9 +25,17 @@ abstract class BaseFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+        initlistener()
         startaction()
     }
 
+    /**
+     * 事件活动
+     */
     open fun startaction(){}
 
+    /**
+     * 监听
+     */
+    open fun initlistener(){}
 }
