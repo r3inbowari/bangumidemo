@@ -1,12 +1,10 @@
 package com.lc.bangumidemo.Fragment
 
-
 import com.lc.bangumidemo.R
 
-class HomeFragment : BaseFragment() {
+class NovebookFragment :BaseFragment() {
     override fun setRes(): Int {
-
-        return R.layout.homefragment
+        return R.layout.novebook
     }
 
 }

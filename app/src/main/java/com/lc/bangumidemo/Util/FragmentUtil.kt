@@ -3,6 +3,7 @@ package com.lc.bangumidemo.Util
 import androidx.fragment.app.Fragment
 import com.lc.bangumidemo.Fragment.DymatFragment
 import com.lc.bangumidemo.Fragment.HomeFragment
+import com.lc.bangumidemo.Fragment.MineFragment
 import com.lc.bangumidemo.Fragment.ProcessFragment
 import com.lc.bangumidemo.R
 

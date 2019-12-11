@@ -1,12 +1,9 @@
 package com.lc.bangumidemo.Fragment
 
-
 import com.lc.bangumidemo.R
 
-class HomeFragment : BaseFragment() {
+class ManhuaFragment :BaseFragment() {
     override fun setRes(): Int {
-
-        return R.layout.homefragment
+        return R.layout.manhualayout
     }
-
 }

@@ -1,7 +1,9 @@
 package com.lc.bangumidemo.Activity
 
+import android.view.Menu
 import android.view.Window
 import com.lc.bangumidemo.R
+import com.lc.bangumidemo.Util.FragmentUtil
 import kotlinx.android.synthetic.main.mainlayout.*
 
 class MainActivity :BaseActivity() {
@@ -10,8 +12,6 @@ class MainActivity :BaseActivity() {
     override fun initview() {
         super.initview()
         //全屏
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setSupportActionBar(toolbar)
     }
 
     override fun initlistener() {
@@ -23,5 +23,10 @@ class MainActivity :BaseActivity() {
             transaction.commit()
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menumain,menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
