@@ -49,9 +49,9 @@
       </file>
     </leaf>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="178" />
-    <option name="y" value="431" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="432" />
+    <option name="y" value="79" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -90,6 +90,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
   </component>
   <component name="RunDashboard">
