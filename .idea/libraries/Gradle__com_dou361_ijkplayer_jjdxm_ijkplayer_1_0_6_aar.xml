@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d08aef8472f153c47ff48da405ce621/jetified-jjdxm-ijkplayer-1.0.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d08aef8472f153c47ff48da405ce621/jetified-jjdxm-ijkplayer-1.0.6/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/47306dd0c7237929283523993c742d7fdf0d946/jjdxm-ijkplayer-1.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dou361.ijkplayer/jjdxm-ijkplayer/1.0.6/fd994dab53dc2a4d7191223b3d1f7b96e0dfd37c/jjdxm-ijkplayer-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
