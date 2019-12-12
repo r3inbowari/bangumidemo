@@ -1,15 +1,19 @@
 package com.lc.bangumidemo.Activity
-
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Handler
 import android.os.Message
 import android.widget.ArrayAdapter
-import com.lc.bangumidemo.Adapter.Recadapt
-import com.lc.bangumidemo.KT.imglist
+import android.widget.LinearLayout
+import android.widget.Toast
+import com.lc.bangumidemo.KT.PageUtil.startact
+import com.lc.bangumidemo.KT.PagesizeUtil.txttolist
+import com.lc.bangumidemo.KT.bookDetail
+import com.lc.bangumidemo.KT.fontsize
+import com.lc.bangumidemo.KT.linesize
+import com.lc.bangumidemo.MyRetrofit.ResClass.BookContent
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
-import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
 import com.ramotion.foldingcell.FoldingCell
@@ -20,15 +24,17 @@ import retrofit2.Response
 import java.io.IOException
 import java.io.InputStream
 import java.net.URL
-
 class BookIndex : BaseActivity() {
+   lateinit var contentView: LinearLayout
     override fun setRes(): Int {
         return R.layout.bookindex
     }
-
     override fun initlistener() {
         super.initlistener()
-        cell_content_view2.setOnClickListener { findViewById<FoldingCell>(R.id.folding_cell2).toggle(false) }
+        cell_title_view2.setOnClickListener {
+            findViewById<FoldingCell>(R.id.folding_cell2).toggle(false)
+            contentView = findViewById(R.id.linear)
+        }
     }
 
     override fun initaction() {
@@ -55,12 +61,17 @@ class BookIndex : BaseActivity() {
         })
     }
     fun loadlist(data:BookDetail?){
-        var adapter : ArrayAdapter<String> = ArrayAdapter<String>(this,R.layout.textview, data?.list as MutableList<String>)
+        var adapter : ArrayAdapter<String> = ArrayAdapter<String>(this,R.layout.textview, data?.getbooknum() as MutableList<String>)
         listview.adapter=adapter
+        listview.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(this,data.getbooknum()[position],Toast.LENGTH_LONG).show()
+            loadbookdatatopage(data,position)
+        }
     }
     fun loaddata(data:BookDetail?)
     {
         if(data==null)return
+        bookDetail=data
         initThreadtoupdatapicture(data.data.cover)
         bookname.setText(data.data.name)
         bookauthor.setText(data.data.author)
@@ -124,4 +135,56 @@ class BookIndex : BaseActivity() {
             //还要处理异常
         }).start()
     }
+
+
+
+    /*
+    *加载书本页面数据入口
+     */
+    private fun loadbookdatatopage(book:BookDetail?,positon:Int) {
+           //Bundler将要发送的数据
+           //var apagesize = PagesizeUtil.getpagesize(this, fontsize, linesize)
+           // url
+        val mHamdler1 = object : Handler() {
+
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+                when (msg.what) {
+                    2 -> {
+                        var result= msg.obj as BookContent
+                       var string= result.content.toString()
+                        println(string)
+                        var list=txttolist(string,this@BookIndex, fontsize, linesize)
+                        startact(this@BookIndex,list)
+                    }
+                    else -> {
+                    }
+                }
+            }
+
+        }
+        Thread(Runnable {
+            var message = Message()
+
+            val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
+            call.enqueue(object : Callback<BookContent> {
+                override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
+                    val st = response.body()
+                    println(st)
+                    message.obj=st
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
+                override fun onFailure(call: Call<BookContent>, t: Throwable) {
+                    println("连接失败")
+                    message.obj=null
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
+
+            })
+
+        }).start()
+    }
+
 }

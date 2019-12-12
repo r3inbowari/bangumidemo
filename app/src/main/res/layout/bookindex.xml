@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="#FFFFFF"
@@ -94,77 +95,100 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <com.ramotion.foldingcell.FoldingCell
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/folding_cell2"
+    <ScrollView
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        >
-        ​
-        <FrameLayout
-            android:id="@+id/cell_content_view2"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:visibility="gone">
-
-            <FrameLayout
+            android:layout_height="match_parent">
+            <com.ramotion.foldingcell.FoldingCell
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/folding_cell2"
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
-                <ListView
-                    android:id="@+id/listview"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                >
+                ​
+                <FrameLayout
+                    android:id="@+id/cell_content_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:visibility="gone">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp">
+                        <ListView
+                            android:id="@+id/listview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                    </FrameLayout>
+
+                </FrameLayout>
+                ​
+                <LinearLayout
+                    android:id="@+id/cell_title_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/Grey_50"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:text="        目录"
+                        android:textColor="#000000"
+                        android:gravity="left|center"
+                        android:textSize="22dp"
+                        />
+                    <TextView
+                        android:id="@+id/Size"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:text="共???章 >  "
+                        android:textColor="#726969"
+                        android:gravity="right|center"
+                        android:textSize="18dp"
+                        />
+
+                </LinearLayout>
+                ​
+            </com.ramotion.foldingcell.FoldingCell>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    />
-            </FrameLayout>
+                    android:orientation="vertical" >
 
-        </FrameLayout>
-        ​
-        <LinearLayout
-            android:id="@+id/cell_title_view2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
 
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:text="        目录"
-                android:textColor="#000000"
-                android:gravity="left|center"
-                android:textSize="22dp"
-                />
-            <TextView
-                android:id="@+id/Size"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:text="共???章 >  "
-                android:textColor="#726969"
-                android:gravity="right|center"
-                android:textSize="18dp"
-                />
+                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                        android:id="@+id/text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                    //放置其他view
+
+                </LinearLayout>
+            </ScrollView>
+
 
         </LinearLayout>
-        ​
-    </com.ramotion.foldingcell.FoldingCell>
-    <com.borjabravo.readmoretextview.ReadMoreTextView
-        android:id="@+id/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+    </ScrollView>
 
-    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

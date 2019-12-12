@@ -10,11 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0977c8b9-3fd3-41ff-8fa0-a543b3b12fd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerdetail.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Empty.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/diver.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -25,21 +20,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Adapter/Recadapt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Adapter/Recadapt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookdata.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookdata.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Welcome.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Welcome.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Welcome.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Welcome.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/carditem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/carditem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,42 +54,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/SinglePageRender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="22" column="37" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="37" />
+            <state relative-caret-position="190">
+              <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/SampleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="389">
+              <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
               <folding>
-                <element signature="e#37#634#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/textview.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="366">
+              <caret line="94" column="57" lean-forward="true" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -109,58 +89,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="-336">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/LoadBitmapTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10389">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
               <folding>
-                <element signature="e#31#143#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1152#1161#0" expanded="true" />
+                <element signature="e#1219#1227#0" expanded="true" />
+                <element signature="e#5977#5978#0" expanded="true" />
+                <element signature="e#6013#6014#0" expanded="true" />
+                <element signature="e#6164#6165#0" expanded="true" />
+                <element signature="e#6196#6197#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookdata.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerdetail.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="107" column="47" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Adapter/Recadapt.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="103" column="5" selection-start-line="60" selection-start-column="3" selection-end-line="103" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -170,12 +127,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="Interface" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
+        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
+        <option value="resourceFile" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -185,30 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Welcome.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/xml/bottombar_tabs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/homefragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/DymatFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dymatfragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ZhongheFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/MineFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/minefragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Util/FragmentUtil.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/HomeFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menumain.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/processfragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/Novebookf.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/novebook.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ProcessFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/VideoFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/videolayout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ManhuaFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/manhualayout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/text_view_broder.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/zhonghe.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/NovebookFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/BaseFragment.kt" />
@@ -220,30 +154,54 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Detail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Paglist.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/novedata.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Empty.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Adapter/Recadapt.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Ktactivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BaseActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/carditem.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerdetail.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/textview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/LoadBitmapTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/PageFilpView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/PageRender.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/PageFlipView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Sqlite/Bookindexdatabase.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Sqlite/MyDatabaseHelper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/DoublePagesRender.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/MenuViewadapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Menuview.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/anim/toobaranim.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Menuleftview.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/menureadleft.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Buttonview.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/buttonbar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/delete_alarm_btn_drawable.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Util/PageUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookconten.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookContent.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerread.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/menuview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Welcome.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/SinglePageRender.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/SampleActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="116" />
-    <option name="y" value="91" />
-    <option name="width" value="1582" />
-    <option name="height" value="1010" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-57" />
+    <option name="y" value="88" />
+    <option name="width" value="1617" />
+    <option name="height" value="864" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -291,13 +249,6 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Adapter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="KT" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,7 +264,45 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="MyRetrofit" type="462c0819:PsiDirectoryNode" />
+              <item name="APIinterface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="MyRetrofit" type="462c0819:PsiDirectoryNode" />
+              <item name="ResClass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="MyRetrofit" type="462c0819:PsiDirectoryNode" />
               <item name="Retrofit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ReadView" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ReadView" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bangumidemo" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Sqlite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
@@ -331,7 +320,25 @@
               <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="anim" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="bangumidemo" type="1abcf292:AndroidViewProjectNode" />
@@ -349,14 +356,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
-    <property name="last_opened_file_path" value="C:/back" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.lc.bangumidemo.Activity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lujiale\Desktop\bangumidemo\app\src\main\res\mipmap-anydpi-v26" />
+      <recent name="C:\Users\lujiale\Desktop\bangumidemo\app\src\main\res\drawable" />
+      <recent name="C:\Users\lujiale\Desktop\bangumidemo\app\src\main\res\anim" />
       <recent name="C:\Users\lujiale\Desktop\bangumidemo\app\src\main\res\drawable-v24" />
       <recent name="C:\Users\lujiale\Desktop\bangumidemo\app\src\main\res\xml" />
     </key>
@@ -461,27 +472,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="116" y="91" width="1582" height="1010" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.18593955" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.15085287" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.32685715" />
-      <window_info anchor="bottom" id="TODO" order="1" weight="0.32914287" />
+      <window_info anchor="bottom" id="Logcat" order="0" visible="true" weight="0.3264642" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32884398" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32968238" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.40830946" />
-      <window_info anchor="bottom" id="Build" order="6" weight="0.2522831" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.2522831" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.36685714" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.2514029" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.2514029" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.35357916" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32911393" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -490,357 +501,432 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Preview" order="5" weight="0.20105125" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Capture Tool" order="1" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.18593955" />
+      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Logcat" order="0" weight="0.32681242" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32914287" />
+      <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32968238" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32911393" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.40830946" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.2520138" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.2522831" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" visible="true" weight="0.36588103" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.32911393" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.20105125" />
+    </layout-to-restore>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Buttonview.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/SampleActivity.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.50/8ac406cf33e942265c4abb33ee0acdee79292dd6/kotlin-stdlib-common-1.3.50-sources.jar!/kotlin/util/Result.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/videolayout.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/zhonghe.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/bottombar_tabs.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menumain.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menusearch.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/carditem.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="-1728">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.cardview/cardview/1.0.0/c9f3ce7ca74ad2c978230f4094ba6804c5166f9c/cardview-1.0.0-sources.jar!/androidx/cardview/widget/CardView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dymatfragment.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/minefragment.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+        <state relative-caret-position="263">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="24" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.7.0/e8b5af7f78bfcce753d552d31bdae1614d2e614a/retrofit-2.7.0-sources.jar!/retrofit2/http/GET.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/processfragment.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        <state relative-caret-position="456">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Detail.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Paglist.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/novebook.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/homefragment.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" selection-start-line="9" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="382">
+          <caret line="189" column="17" lean-forward="true" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
+          <folding>
+            <element signature="e#352#512#0" />
+            <element signature="e#517#3812#0" />
+            <element signature="e#3929#6857#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.anko/anko-commons/0.10.4/e2da737b1fee81d7d807e2b08fbaba06f8f43f2f/anko-commons-0.10.4-sources.jar!/dialogs/Toasts.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/PageRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0/9865019bbd2d95e41dede3d8ebf964aa93f97766/appcompat-1.1.0-sources.jar!/androidx/appcompat/app/AppCompatActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="213" selection-start-line="213" selection-end-line="213" />
+        <state relative-caret-position="240">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Sqlite/Bookindexdatabase.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding>
-            <element signature="e#7456#7457#0" expanded="true" />
+            <element signature="e#35#187#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/detaildata.kt" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.7.0/e8b5af7f78bfcce753d552d31bdae1614d2e614a/retrofit-2.7.0-sources.jar!/retrofit2/Retrofit.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/MenuViewadapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="168">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/view/View.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/toobaranim.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="26187" selection-start-line="26187" selection-end-line="26187" />
+        <state relative-caret-position="72">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/buttonback.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Menuleftview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/delete_alarm_btn_drawable.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/os/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="1633">
+          <caret line="945" selection-start-line="945" selection-end-line="945" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/novedata.kt" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.7.0/e8b5af7f78bfcce753d552d31bdae1614d2e614a/retrofit-2.7.0-sources.jar!/retrofit2/Platform.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerdetail.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="9" selection-start-line="9" selection-end-line="10" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.7.0/e8b5af7f78bfcce753d552d31bdae1614d2e614a/retrofit-2.7.0-sources.jar!/retrofit2/DefaultCallAdapterFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Empty.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookconten.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="11" />
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookResult.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-          <folding>
-            <element signature="e#37#185#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/BaseFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/DymatFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/NovebookFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ProcessFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#37#253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ZhongheFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/VideoFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/HomeFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/ManhuaFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Fragment/MineFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Util/FragmentUtil.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding>
-            <element signature="e#48#310#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BaseActivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Empty.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#37#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/carditem.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2112">
-          <caret line="88" column="39" selection-start-line="29" selection-start-column="23" selection-end-line="88" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="89" column="18" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerdetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+        <state relative-caret-position="48">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/Bookdata.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/Retrofit/Retrofitcall.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+        <state relative-caret-position="430">
+          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/APIinterface/APIServerread.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="240">
+          <caret line="10" column="77" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
           <folding>
-            <element signature="e#31#143#0" expanded="true" />
+            <element signature="e#52#242#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Adapter/Recadapt.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookDetail.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="103" column="5" selection-start-line="60" selection-start-column="3" selection-end-line="103" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/textview.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/MyRetrofit/ResClass/BookContent.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="48">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Util/PageUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="22" column="37" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="37" />
+        <state relative-caret-position="1259">
+          <caret line="60" lean-forward="true" selection-start-line="17" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bookindex.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menureadleft.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="107" column="47" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="47" />
+        <state relative-caret-position="969">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menuview.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/buttonbar.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Buttonview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/view/LayoutInflater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="681" selection-start-line="681" selection-end-line="681" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Sqlite/MyDatabaseHelper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#35#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/View/Menuview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/PageFlipView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11147">
+          <caret line="483" column="24" selection-start-line="483" selection-start-column="24" selection-end-line="483" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/DoublePagesRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="923">
+          <caret line="526" column="1" selection-start-line="526" selection-start-column="1" selection-end-line="526" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Welcome.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/SinglePageRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/BookIndex.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="456">
+          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/ReadView/LoadBitmapTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10389">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
           <folding>
-            <element signature="e#37#634#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1152#1161#0" expanded="true" />
+            <element signature="e#1219#1227#0" expanded="true" />
+            <element signature="e#5977#5978#0" expanded="true" />
+            <element signature="e#6013#6014#0" expanded="true" />
+            <element signature="e#6164#6165#0" expanded="true" />
+            <element signature="e#6196#6197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/KT/Ktactivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/Searchactivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="94" column="57" lean-forward="true" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lc/bangumidemo/Activity/SampleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
