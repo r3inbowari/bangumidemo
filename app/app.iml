@@ -25,7 +25,7 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="C:\Users\lujiale\Desktop\bangumidemo\app\src\debug\kotlin;C:\Users\lujiale\Desktop\bangumidemo\app\src\debug\java;C:\Users\lujiale\Desktop\bangumidemo\app\src\release\kotlin;C:\Users\lujiale\Desktop\bangumidemo\app\src\release\java;C:\Users\lujiale\Desktop\bangumidemo\app\src\debugAndroidTest\kotlin;C:\Users\lujiale\Desktop\bangumidemo\app\src\debugUnitTest\kotlin;C:\Users\lujiale\Desktop\bangumidemo\app\src\releaseUnitTest\kotlin">
+      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="C:\project\bangumidemo\app\src\debug\kotlin;C:\project\bangumidemo\app\src\debug\java;C:\project\bangumidemo\app\src\release\kotlin;C:\project\bangumidemo\app\src\release\java;C:\project\bangumidemo\app\src\debugAndroidTest\kotlin;C:\project\bangumidemo\app\src\debugUnitTest\kotlin;C:\project\bangumidemo\app\src\releaseUnitTest\kotlin">
         <compilerSettings>
           <option name="additionalArguments" value="-Xallow-no-source-files" />
         </compilerSettings>
