@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
 import com.lc.bangumidemo.R
@@ -44,9 +45,9 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
         holder.tag.setText(list[position].tag)
         holder.statues.setText(list[position].status)
 
-        holder.introduce.setText(list[position].introduce)
+        var introduce=list[position].introduce
         if (mOnItemClickListener != null) {
-            holder.itemView.setOnClickListener {
+            holder.cardView.setOnClickListener {
                 mOnItemClickListener!!.onItemClick(
                     holder.itemView,
                     position
@@ -63,7 +64,7 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 when (msg.what) {
-                    2 -> {
+                    1 -> {
                         if(msg.obj!=null) {
                             val picture = msg.obj as Bitmap
                             holder.cover.setImageBitmap(picture)
@@ -95,7 +96,7 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
             }
 
             image = BitmapFactory.decodeStream(io)
-            message.what = 2
+            message.what = 1
             message.obj = image
             mHamdler1.sendMessage(message)
             //还要处理异常
@@ -117,18 +118,16 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
         var num: TextView
         var tag: TextView
         var statues: TextView
-
-        var introduce: TextView
-
+        var cardView : CardView
         init {
             cover = itemView.findViewById(R.id.cover)
             name = itemView.findViewById(R.id.name)
             time = itemView.findViewById(R.id.time)
             num = itemView.findViewById(R.id.num)
             tag = itemView.findViewById(R.id.tag)
-            introduce = itemView.findViewById(R.id.introduce)
             author = itemView.findViewById(R.id.author)
             statues = itemView.findViewById(R.id.status)
+            cardView= itemView.findViewById(R.id.cardview)
         }
     }
 

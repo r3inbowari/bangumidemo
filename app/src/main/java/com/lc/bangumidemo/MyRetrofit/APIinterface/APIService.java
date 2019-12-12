@@ -9,5 +9,6 @@ import retrofit2.http.Query;
 public interface APIService {
     @GET("/")
     Call<BookResult> getCall(@Query("xsname") String bookname);
+
 }
 

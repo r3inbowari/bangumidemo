@@ -84,7 +84,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.7.0'
 
-
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //expendtextview
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
 }
 
 

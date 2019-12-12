@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".Welcome">
+        <activity android:name=".Activity.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,6 +37,7 @@
         </activity>
         <activity android:name=".Activity.MainActivity"></activity>
         <activity android:name=".Activity.Searchactivity"></activity>
+        <activity android:name=".Activity.BookIndex"></activity>
     </application>
 
 

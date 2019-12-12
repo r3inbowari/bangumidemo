@@ -1,11 +1,11 @@
 package com.lc.bangumidemo.Activity
 
 import android.view.Menu
-import android.view.Window
+
 import com.lc.bangumidemo.R
 import com.lc.bangumidemo.Util.FragmentUtil
 import kotlinx.android.synthetic.main.mainlayout.*
-import kotlinx.android.synthetic.main.novebook.*
+
 
 class MainActivity :BaseActivity() {
     override fun setRes(): Int { return R.layout.mainlayout }

@@ -8,8 +8,10 @@ abstract class BaseActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(setRes())
         initview()
+        initaction()
 
     }
+
 
 
 
@@ -32,12 +34,11 @@ abstract class BaseActivity:AppCompatActivity() {
      * 初始化监听
      */
     open fun initlistener() {}
-
+    open fun initaction() {}
     /**
      * 编写你的行为
      */
     open fun startaction(){}
-
 
 
 }

@@ -1,7 +1,7 @@
 package com.lc.bangumidemo.MyRetrofit.ResClass
 
 import android.graphics.Bitmap
-import com.lc.bangumidemo.Activity.imglist
+import com.lc.bangumidemo.KT.imglist
 
 data class Bookdata (
     var name: String,
