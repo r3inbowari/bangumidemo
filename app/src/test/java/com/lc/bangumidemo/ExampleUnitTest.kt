@@ -1,5 +1,9 @@
 package com.lc.bangumidemo
 
+import com.lc.bangumidemo.Sqlite.Bookinsert
+import com.lc.bangumidemo.Sqlite.Bookselect
+import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
+import com.lc.bangumidemo.Sqlite.Nvdetil
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,6 +16,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+//        assertEquals(4, 2 + 2)
+
     }
 }

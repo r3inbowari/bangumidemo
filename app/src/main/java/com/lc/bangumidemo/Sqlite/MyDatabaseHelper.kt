@@ -9,7 +9,7 @@ import android.widget.Toast
 class MyDatabaseHelper(
     private val mContext: Context,
     name: String,
-    factory: SQLiteDatabase.CursorFactory,
+    factory: SQLiteDatabase.CursorFactory?,
     version: Int
 ) : SQLiteOpenHelper(mContext, name, factory, version) {
 
@@ -26,12 +26,15 @@ class MyDatabaseHelper(
 
     companion object {
         //将见表语句定义成字符串常量
-        val CREATE_BOOK = ("create table Book ("
+        val CREATE_BOOK = ("create table Category ("
                 + "id integer primary key autoincrement, "
                 + "author text, "
-                + "content text, "
-                + "pages integer, "
-                + "bookindex integer, "
-                + "name text)")
+                + "bookname text, "
+                + "pagesize integer, "
+                + "pageindex interger, "
+                + "contentindex interger, "
+                + "content text)"
+                )
+
     }
 }

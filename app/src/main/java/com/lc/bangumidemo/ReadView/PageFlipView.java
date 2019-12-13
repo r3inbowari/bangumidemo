@@ -22,7 +22,11 @@ import android.util.Log;
 import com.eschao.android.widget.pageflip.PageFlip;
 
 import com.eschao.android.widget.pageflip.PageFlipException;
-
+import com.lc.bangumidemo.KT.KtactivityKt;
+import com.lc.bangumidemo.Sqlite.Bookindexdatabase;
+import com.lc.bangumidemo.Sqlite.MyDatabaseHelper;
+import com.lc.bangumidemo.Sqlite.Nvdetil;
+import com.lc.bangumidemo.Sqlite.SqlUtil;
 
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -66,13 +70,13 @@ public class PageFlipView extends GLSurfaceView implements Renderer {
     PageRender mPageRender;
 
     ReentrantLock mDrawLock;
-
+    Context context= null;
 
 
     public PageFlipView(Context context) {
 
         super(context);
-
+        this.context=context;
         init(context);
 
     }
@@ -82,7 +86,7 @@ public class PageFlipView extends GLSurfaceView implements Renderer {
     public PageFlipView(Context context, AttributeSet attrs) {
 
         super(context, attrs);
-
+        this.context=context;
         init(context);
 
     }
@@ -130,8 +134,19 @@ public class PageFlipView extends GLSurfaceView implements Renderer {
 
 
         // init others
+        //每次启动前查询是否有记录 同时记录当前位置
+        MyDatabaseHelper dbhelper =new  MyDatabaseHelper(context, "bookindexssss.db", null, 1);
+        Bookindexdatabase datahelp = new Bookindexdatabase(context, "bookdatassss.db", null, 1);
+        String name= KtactivityKt.getBookDetail().getData().getName();
+        String author =KtactivityKt.getBookDetail().getData().getAuthor();
+        int pagesize =KtactivityKt.getBookDetail().getList().size();
+        //获取游标
+        Nvdetil r =new Nvdetil(null, name,author,pagesize,null,null,null);
+        Nvdetil retu = SqlUtil.findbookisexist(dbhelper,r);
+        int pageindex=retu.getPageindex();
+        int contentindex=retu.getContentindex();
 
-        mPageNo = 1;
+        mPageNo = contentindex;
         mDrawLock = new ReentrantLock();
 
         mPageRender = new SinglePageRender(context, mPageFlip,

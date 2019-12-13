@@ -16,6 +16,8 @@ import com.lc.bangumidemo.MyRetrofit.ResClass.BookContent
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
+import com.lc.bangumidemo.Sqlite.*
+import com.lc.bangumidemo.Sqlite.Bookinsert.insert
 import com.ramotion.foldingcell.FoldingCell
 import kotlinx.android.synthetic.main.bookindex.*
 import retrofit2.Call
@@ -31,6 +33,7 @@ class BookIndex : BaseActivity() {
     }
     override fun initlistener() {
         super.initlistener()
+        startread.setOnClickListener { loadbookdatatopage(bookDetail,0) }
         cell_title_view2.setOnClickListener {
             findViewById<FoldingCell>(R.id.folding_cell2).toggle(false)
             contentView = findViewById(R.id.linear)
@@ -142,9 +145,13 @@ class BookIndex : BaseActivity() {
     *加载书本页面数据入口
      */
     private fun loadbookdatatopage(book:BookDetail?,positon:Int) {
-           //Bundler将要发送的数据
-           //var apagesize = PagesizeUtil.getpagesize(this, fontsize, linesize)
-           // url
+        //每次启动前查询是否有记录 同时记录当前位置
+        var record=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,null,null,null,null)
+        var dbhelper = MyDatabaseHelper(this, "bookindexssss.db", null, 1)
+        var datahelp = Bookindexdatabase(this, "bookdatassss.db", null, 1)
+
+        val res=SqlUtil.findbookisexist(dbhelper,record)
+        //
         val mHamdler1 = object : Handler() {
 
             override fun handleMessage(msg: Message) {
@@ -152,11 +159,29 @@ class BookIndex : BaseActivity() {
                 when (msg.what) {
                     2 -> {
                         var result= msg.obj as BookContent
-                       var string= result.content.toString()
-                        println(string)
-                        var list=txttolist(string,this@BookIndex, fontsize, linesize)
-                        startact(this@BookIndex,list)
-                    }
+                        var string= result.content.toString()
+                       var list =txttolist(string,this@BookIndex, fontsize, linesize)
+                        //插入数据
+                        var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
+                        Bookinsert.insert(datahelp,reco)
+                        if(res==null) {
+                              //如果不存在 则插入一条记录
+                            var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
+                            SqlUtil.recordbookindex(dbhelper,reco)
+                            dbhelper.close()
+                            startact(this@BookIndex,list)
+                        }
+                        else{
+                            if(positon==0) startact(this@BookIndex,list)
+                            else
+                            {
+                                var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
+                                Bookupdata.updata(dbhelper,reco)
+                                dbhelper.close()
+                                startact(this@BookIndex,list)
+                            }
+                        }
+                        }
                     else -> {
                     }
                 }

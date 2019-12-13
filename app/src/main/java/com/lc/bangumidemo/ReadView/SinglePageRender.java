@@ -13,9 +13,20 @@ import com.eschao.android.widget.pageflip.Page;
 import com.eschao.android.widget.pageflip.PageFlip;
 import com.eschao.android.widget.pageflip.PageFlipState;
 import com.lc.bangumidemo.KT.KtactivityKt;
+import com.lc.bangumidemo.KT.PageUtil;
+import com.lc.bangumidemo.KT.PagesizeUtil;
+import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail;
+import com.lc.bangumidemo.Sqlite.Bookindexdatabase;
+import com.lc.bangumidemo.Sqlite.Bookselect;
+import com.lc.bangumidemo.Sqlite.Bookupdata;
+import com.lc.bangumidemo.Sqlite.MyDatabaseHelper;
+import com.lc.bangumidemo.Sqlite.Nvdetil;
+import com.lc.bangumidemo.Sqlite.SqlUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kotlin.reflect.KAnnotatedElement;
 
 
 /**
@@ -51,6 +62,7 @@ import java.util.List;
 public class SinglePageRender extends PageRender {
     public static int page=0;
     public static int mytextsize=KtactivityKt.getFontsize();
+    public static List<String> txtpa = new ArrayList<String>();
     private Context contextm=null;
     public static void setMytextsize(int mytextsize) {
         SinglePageRender.mytextsize = mytextsize;
@@ -305,6 +317,37 @@ public class SinglePageRender extends PageRender {
      */
     public static int num =-1;
     private void drawPage(int number) {
+        /**
+         * 画之前查询当前游标加载数据
+         */
+        //每次进来更新游标
+
+
+        //每次启动前查询是否有记录 同时记录当前位置
+        MyDatabaseHelper dbhelper =new  MyDatabaseHelper(contextm, "bookindexssss.db", null, 1);
+        Bookindexdatabase datahelp = new Bookindexdatabase(contextm, "bookdatassss.db", null, 1);
+
+        String name=KtactivityKt.getBookDetail().getData().getName();
+        String author =KtactivityKt.getBookDetail().getData().getAuthor();
+        int pagesize =KtactivityKt.getBookDetail().getList().size();
+        //获取游标
+        Nvdetil r =new Nvdetil(null, name,author,pagesize,null,null,null);
+        Nvdetil retu = SqlUtil.findbookisexist(dbhelper,r);
+        int pageindex=retu.getPageindex();
+        int contentindex=retu.getContentindex();
+
+        //
+        Nvdetil up =new Nvdetil(null, name,author,pagesize,pageindex,number,null);
+        Bookupdata.updata(dbhelper,up);
+        //获取数据
+        Nvdetil getdata =new Nvdetil(null, name,author,pagesize,pageindex,null,null);
+        Nvdetil nv=Bookselect.select(datahelp,getdata);
+        String txe=nv.getContent();
+        List<String> m=PagesizeUtil.INSTANCE.txttolist(txe,contextm,KtactivityKt.getFontsize(),KtactivityKt.getLinesize());
+        PageUtil.INSTANCE.clean();
+        for(String i : m ){
+            PageUtil.INSTANCE.loadtxt(i);
+        }
         num=number;
         final int width = mCanvas.getWidth();
 
@@ -350,11 +393,11 @@ public class SinglePageRender extends PageRender {
 
         float y = height - p.getTextSize() - 20;
 
-        //  mCanvas.drawText(text, (width - textWidth) / 2, y, p);
+          mCanvas.drawText(text, (width - textWidth) / 2, y, p);
 
         //draw txt
-        txtpa.clear();
-//        String txt = list(number-1);
+
+
         String txt= KtactivityKt.getPagetxt().get(number-1);
         Paint a =new Paint();
         float si =calcFontSize(mytextsize);
@@ -416,9 +459,9 @@ public class SinglePageRender extends PageRender {
         int l=16;
         return l*count;
     }
-    public static List<String> txtpa = new ArrayList<String>();
     public static int cuttxt(String string,int linecount,int linesize)
     {
+        txtpa.clear();
         int subsize= string.length();
         int addsize= (linesize*linecount-subsize);
         int temp = subsize+addsize;

@@ -49,6 +49,8 @@ import com.lc.bangumidemo.ReadView.SinglePageRender;
 import com.lc.bangumidemo.ReadView.View.Buttonview;
 import com.lc.bangumidemo.ReadView.View.Menuleftview;
 import com.lc.bangumidemo.ReadView.View.Menuview;
+import com.lc.bangumidemo.Sqlite.Bookinsert;
+import com.lc.bangumidemo.Sqlite.Bookselect;
 import com.lc.bangumidemo.Sqlite.MyDatabaseHelper;
 
 import java.util.ArrayList;
@@ -88,8 +90,9 @@ public class SampleActivity extends Activity implements OnGestureListener {
     protected void onStart() {
         super.onStart();
         //初始化数据库
-   //      dbhelper = new MyDatabaseHelper(this, "BookStore.db", null, 1);
-    //     db = dbhelper.getWritableDatabase();
+//         dbhelper = new MyDatabaseHelper(this, "testt.db", null, 1);
+//        Bookinsert.insert(dbhelper);
+//        Bookselect.select(dbhelper);
         //
     }
     public static void loadtext(Context context)
@@ -400,7 +403,7 @@ public class SampleActivity extends Activity implements OnGestureListener {
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if(e1.getX()-e2.getX()>distance) {
             Toast.makeText(SampleActivity.this, "left", Toast.LENGTH_SHORT).show();
-            if (SinglePageRender.num == LoadBitmapTask.getpagetxtsize()) {
+//            if (SinglePageRender.num == LoadBitmapTask.getpagetxtsize()) {
 //                PageUtil.clean();
 //                int index = BookindexKt.getIndex(BookindexKt.getbook());
 //                BookindexKt.setIndex(BookindexKt.getbook(), ++index);
@@ -413,13 +416,13 @@ public class SampleActivity extends Activity implements OnGestureListener {
 //                db.close();
 //               getcontext(BookindexKt.getbook().getHref().get(index));
 
-            }
+//            }
         }
         else if(e2.getX()-e1.getX()>distance)
         {
 
             Toast.makeText(SampleActivity.this, "right", Toast.LENGTH_SHORT).show();
-            if (SinglePageRender.num == 1) {
+ //           if (SinglePageRender.num == 1) {
 //                PageUtil.clean();
 //                int index = BookindexKt.getIndex(BookindexKt.getbook());
 //                BookindexKt.setIndex(BookindexKt.getbook(), --index);
@@ -432,7 +435,7 @@ public class SampleActivity extends Activity implements OnGestureListener {
 //                db.close();
 //                getcontext(BookindexKt.getbook().getHref().get(index));
 //
-            }
+//            }
         }
         return false;
 

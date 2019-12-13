@@ -8,6 +8,9 @@ import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
 import com.lc.bangumidemo.R
 import com.lc.bangumidemo.ReadView.DoublePagesRender
 import com.lc.bangumidemo.ReadView.LoadBitmapTask
+import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
+import com.lc.bangumidemo.Sqlite.Nvdetil
+import com.lc.bangumidemo.Sqlite.SqlUtil
 import java.util.ArrayList
 
 var bookDetail : BookDetail?=null
@@ -94,9 +97,13 @@ object PageUtil {
         LoadBitmapTask.addpicture(ID)
     }
     //装载并获取已装载页数
-    fun getpagecount(): Int {
-        DoublePagesRender.setpicturesize(pagetxt.size)
-        return LoadBitmapTask.getpagetxtsize()
+    fun getpagecount(context: Context): Int {
+        var record=
+            Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,null,null,null,null)
+        var dbhelper = MyDatabaseHelper(context, "bookindexssss.db", null, 1)
+        val res:Nvdetil=SqlUtil.findbookisexist(dbhelper,record)
+        res.pagesize?.let { DoublePagesRender.setpicturesize(it) }
+        return res.pagesize!!
     }
     //装载一页数据
     fun loadtxt(txt: String) {
@@ -108,7 +115,7 @@ object PageUtil {
         for (s in st) {
             loadtxt(s)
         }
-        getpagecount()
+        getpagecount(context)
         SampleActivity.loadtext(context)
     }
 

@@ -76,7 +76,7 @@ public final class LoadBitmapTask implements Runnable {
     int[][] mPortraitBGs;
 
     public static List<Integer> pagelist = new ArrayList<Integer>();
-    public static List<String> pagetxt = new ArrayList<String>();
+
     static int size=0;
 
 
@@ -418,20 +418,7 @@ public final class LoadBitmapTask implements Runnable {
     {
         pagelist.add(pageID);
     }
-    public static int getlistsize()
-    {
-        size=pagelist.size();
-        return size;
-    }
-    public static void addpagetxt(String txt)
-    {
-        pagetxt.add(txt);
-    }
-    public static int getpagetxtsize()
-    {
-        size=pagetxt.size();
-        return size;
-    }
+
     public Bitmap getpicture(int no) {
 
 

@@ -9,13 +9,14 @@ import android.widget.Toast
 class Bookindexdatabase(
     private val mContext: Context,
     name: String,
-    factory: SQLiteDatabase.CursorFactory,
+    factory: SQLiteDatabase.CursorFactory?,
     version: Int
 ) : SQLiteOpenHelper(mContext, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase) {
         //在数据库创建完成时创建Book表
-        db.execSQL(CREATE_BOOK)
+        db.execSQL(Bookindexdatabase.CREATE_BOOK)
+        Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show()
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -24,8 +25,15 @@ class Bookindexdatabase(
 
     companion object {
         //将见表语句定义成字符串常量
-        val CREATE_BOOK = ("create table Howmanybook ("
+        val CREATE_BOOK = ("create table Geegory ("
                 + "id integer primary key autoincrement, "
-                + "name text)")
+                + "author text, "
+                + "bookname text, "
+                + "pagesize integer, "
+                + "pageindex interger unique, "
+                + "contentindex interger, "
+                + "content text)"
+                )
+
     }
 }
