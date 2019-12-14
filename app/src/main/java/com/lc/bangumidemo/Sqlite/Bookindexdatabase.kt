@@ -30,7 +30,7 @@ class Bookindexdatabase(
                 + "author text, "
                 + "bookname text, "
                 + "pagesize integer, "
-                + "pageindex interger unique, "
+                + "pageindex interger , "
                 + "contentindex interger, "
                 + "content text)"
                 )

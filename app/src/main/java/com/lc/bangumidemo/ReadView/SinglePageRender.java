@@ -74,7 +74,7 @@ public class SinglePageRender extends PageRender {
 
         super(context, pageFlip, handler, pageNo);
         contextm=context;
-        pageFlip.enableClickToFlip(false);
+        pageFlip.enableClickToFlip(true);
 
     }
 
@@ -317,37 +317,6 @@ public class SinglePageRender extends PageRender {
      */
     public static int num =-1;
     private void drawPage(int number) {
-        /**
-         * 画之前查询当前游标加载数据
-         */
-        //每次进来更新游标
-
-
-        //每次启动前查询是否有记录 同时记录当前位置
-        MyDatabaseHelper dbhelper =new  MyDatabaseHelper(contextm, "bookindexssss.db", null, 1);
-        Bookindexdatabase datahelp = new Bookindexdatabase(contextm, "bookdatassss.db", null, 1);
-
-        String name=KtactivityKt.getBookDetail().getData().getName();
-        String author =KtactivityKt.getBookDetail().getData().getAuthor();
-        int pagesize =KtactivityKt.getBookDetail().getList().size();
-        //获取游标
-        Nvdetil r =new Nvdetil(null, name,author,pagesize,null,null,null);
-        Nvdetil retu = SqlUtil.findbookisexist(dbhelper,r);
-        int pageindex=retu.getPageindex();
-        int contentindex=retu.getContentindex();
-
-        //
-        Nvdetil up =new Nvdetil(null, name,author,pagesize,pageindex,number,null);
-        Bookupdata.updata(dbhelper,up);
-        //获取数据
-        Nvdetil getdata =new Nvdetil(null, name,author,pagesize,pageindex,null,null);
-        Nvdetil nv=Bookselect.select(datahelp,getdata);
-        String txe=nv.getContent();
-        List<String> m=PagesizeUtil.INSTANCE.txttolist(txe,contextm,KtactivityKt.getFontsize(),KtactivityKt.getLinesize());
-        PageUtil.INSTANCE.clean();
-        for(String i : m ){
-            PageUtil.INSTANCE.loadtxt(i);
-        }
         num=number;
         final int width = mCanvas.getWidth();
 
@@ -356,8 +325,6 @@ public class SinglePageRender extends PageRender {
         Paint p = new Paint();
 
         p.setFilterBitmap(true);
-
-
 
         // 1. draw background bitmap
 
@@ -393,12 +360,14 @@ public class SinglePageRender extends PageRender {
 
         float y = height - p.getTextSize() - 20;
 
-          mCanvas.drawText(text, (width - textWidth) / 2, y, p);
-
+//          mCanvas.drawText(text, (width - textWidth) / 2, y, p);
         //draw txt
-
-
-        String txt= KtactivityKt.getPagetxt().get(number-1);
+        String txt=null;
+        try {
+            txt = KtactivityKt.getPagetxt().get(number);
+        }catch (Exception e){
+            return;
+        }
         Paint a =new Paint();
         float si =calcFontSize(mytextsize);
         a.setTextSize(si);
@@ -413,31 +382,6 @@ public class SinglePageRender extends PageRender {
             mCanvas.drawText(txtpa.get(i), si/2, (height-16*(h+40))/2+(height-16*(h+40))/4 + i*(h+40), a);
         }
 
-        if (number <= 1) {
-
-            String firstPage = "The First Page";
-
-            p.setTextSize(calcFontSize(16));
-
-            float w2 = p.measureText(firstPage);
-
-            float h2 = p.getTextSize();
-
-        }
-
-        else if (number >= MAX_PAGES) {
-
-            String lastPage = "The Last Page";
-
-            p.setTextSize(calcFontSize(16));
-
-            float w3 = p.measureText(lastPage);
-
-            float h3 = p.getTextSize();
-
-            mCanvas.drawText(lastPage, (width - w3) / 2, y + 5 + h3, p);
-
-        }
 
     }
     public static float cal(int size, Context context)
@@ -518,7 +462,7 @@ public class SinglePageRender extends PageRender {
 
     public boolean canFlipBackward() {
 
-        if (mPageNo > 1) {
+        if (mPageNo > 0) {
 
             mPageFlip.getFirstPage().setSecondTextureWithFirst();
 

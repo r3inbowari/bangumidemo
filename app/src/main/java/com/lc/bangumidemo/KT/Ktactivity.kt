@@ -12,7 +12,7 @@ import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
 import com.lc.bangumidemo.Sqlite.Nvdetil
 import com.lc.bangumidemo.Sqlite.SqlUtil
 import java.util.ArrayList
-
+var booknvdetail :Nvdetil?=Nvdetil(null,null,null,null,null,null,null)  //当前正在浏览书目信息
 var bookDetail : BookDetail?=null
 var imglist : MutableList<Bitmap> = ArrayList<Bitmap>()
 var list: MutableList<Bookdata> = mutableListOf()
@@ -21,6 +21,7 @@ var width=0      //初始屏幕宽度
 var height=0     //初始屏幕高度
 var fontsize =23 //默认字体大小
 var linesize =16 //默认显示行数
+var position:Int=0
 
 
 /**
@@ -96,26 +97,27 @@ object PageUtil {
         LoadBitmapTask.addpicture(ID)
         LoadBitmapTask.addpicture(ID)
     }
-    //装载并获取已装载页数
-    fun getpagecount(context: Context): Int {
-        var record=
-            Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,null,null,null,null)
-        var dbhelper = MyDatabaseHelper(context, "bookindexssss.db", null, 1)
-        val res:Nvdetil=SqlUtil.findbookisexist(dbhelper,record)
-        res.pagesize?.let { DoublePagesRender.setpicturesize(it) }
-        return res.pagesize!!
-    }
     //装载一页数据
     fun loadtxt(txt: String) {
         pagetxt.add(txt)//加载一页数据
     }
 
     //装载并获取已装载页数
-    fun startact(context: Context, st: List<String>) {
+    fun start(context: Context, st: List<String>) {
+        clean()
         for (s in st) {
             loadtxt(s)
         }
-        getpagecount(context)
+        DoublePagesRender.setpicturesize(st.size)
+        SampleActivity.loadtext(context)
+    }
+    //装载并获取已装载页数
+    fun startact(context: Context, st: List<String>) {
+       clean()
+        for (s in st) {
+            loadtxt(s)
+        }
+        DoublePagesRender.setpicturesize(pagetxt.size)
         SampleActivity.loadtext(context)
     }
 
@@ -125,4 +127,5 @@ object PageUtil {
 
 
 }
+
 

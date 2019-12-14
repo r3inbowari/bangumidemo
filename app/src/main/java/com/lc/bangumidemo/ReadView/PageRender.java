@@ -50,7 +50,7 @@ public abstract class PageRender implements OnPageFlipListener {
 
 
 
-    int mPageNo;
+    public static int mPageNo;
 
     int mDrawCommand;
 

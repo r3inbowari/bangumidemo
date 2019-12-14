@@ -7,11 +7,9 @@ import android.os.Message
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.lc.bangumidemo.KT.*
 import com.lc.bangumidemo.KT.PageUtil.startact
 import com.lc.bangumidemo.KT.PagesizeUtil.txttolist
-import com.lc.bangumidemo.KT.bookDetail
-import com.lc.bangumidemo.KT.fontsize
-import com.lc.bangumidemo.KT.linesize
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookContent
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
@@ -33,7 +31,10 @@ class BookIndex : BaseActivity() {
     }
     override fun initlistener() {
         super.initlistener()
-        startread.setOnClickListener { loadbookdatatopage(bookDetail,0) }
+        startread.setOnClickListener {
+
+            loadbookdatatopage(this,bookDetail,0)
+        }
         cell_title_view2.setOnClickListener {
             findViewById<FoldingCell>(R.id.folding_cell2).toggle(false)
             contentView = findViewById(R.id.linear)
@@ -68,7 +69,7 @@ class BookIndex : BaseActivity() {
         listview.adapter=adapter
         listview.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this,data.getbooknum()[position],Toast.LENGTH_LONG).show()
-            loadbookdatatopage(data,position)
+            loadbookdatatopage(this,data,position)
         }
     }
     fun loaddata(data:BookDetail?)
@@ -140,76 +141,5 @@ class BookIndex : BaseActivity() {
     }
 
 
-
-    /*
-    *加载书本页面数据入口
-     */
-    private fun loadbookdatatopage(book:BookDetail?,positon:Int) {
-        //每次启动前查询是否有记录 同时记录当前位置
-        var record=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,null,null,null,null)
-        var dbhelper = MyDatabaseHelper(this, "bookindexssss.db", null, 1)
-        var datahelp = Bookindexdatabase(this, "bookdatassss.db", null, 1)
-
-        val res=SqlUtil.findbookisexist(dbhelper,record)
-        //
-        val mHamdler1 = object : Handler() {
-
-            override fun handleMessage(msg: Message) {
-                super.handleMessage(msg)
-                when (msg.what) {
-                    2 -> {
-                        var result= msg.obj as BookContent
-                        var string= result.content.toString()
-                       var list =txttolist(string,this@BookIndex, fontsize, linesize)
-                        //插入数据
-                        var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
-                        Bookinsert.insert(datahelp,reco)
-                        if(res==null) {
-                              //如果不存在 则插入一条记录
-                            var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
-                            SqlUtil.recordbookindex(dbhelper,reco)
-                            dbhelper.close()
-                            startact(this@BookIndex,list)
-                        }
-                        else{
-                            if(positon==0) startact(this@BookIndex,list)
-                            else
-                            {
-                                var reco=Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,bookDetail?.list?.size,positon,0,string)
-                                Bookupdata.updata(dbhelper,reco)
-                                dbhelper.close()
-                                startact(this@BookIndex,list)
-                            }
-                        }
-                        }
-                    else -> {
-                    }
-                }
-            }
-
-        }
-        Thread(Runnable {
-            var message = Message()
-
-            val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
-            call.enqueue(object : Callback<BookContent> {
-                override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
-                    val st = response.body()
-                    println(st)
-                    message.obj=st
-                    message.what=2
-                    mHamdler1.sendMessage(message)
-                }
-                override fun onFailure(call: Call<BookContent>, t: Throwable) {
-                    println("连接失败")
-                    message.obj=null
-                    message.what=2
-                    mHamdler1.sendMessage(message)
-                }
-
-            })
-
-        }).start()
-    }
 
 }
