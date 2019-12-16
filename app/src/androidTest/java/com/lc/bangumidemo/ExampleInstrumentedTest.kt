@@ -2,10 +2,6 @@ package com.lc.bangumidemo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.lc.bangumidemo.Sqlite.Bookinsert
-import com.lc.bangumidemo.Sqlite.Bookselect
-import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
-import com.lc.bangumidemo.Sqlite.Nvdetil
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +9,7 @@ import org.junit.runner.RunWith
 import org.junit.Assert.*
 
 /**
- * Instrumented test, which will execute on an Android device.
+ * Instrumented tesst, which will execute on an Android device.
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
@@ -21,7 +17,7 @@ import org.junit.Assert.*
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+        // Context of the app under tesst.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.lc.bangumidemo", appContext.packageName)
 

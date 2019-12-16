@@ -36,7 +36,6 @@
         <activity android:name=".Activity.MainActivity"></activity>
         <activity android:name=".Activity.Searchactivity"></activity>
         <activity android:name=".Activity.BookIndex"></activity>
-        <activity android:name=".Activity.SampleActivity"></activity>
         <activity android:name=".Activity.testclass"></activity>
     </application>
 

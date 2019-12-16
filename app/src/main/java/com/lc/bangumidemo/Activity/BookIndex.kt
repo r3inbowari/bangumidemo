@@ -1,4 +1,5 @@
 package com.lc.bangumidemo.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
@@ -8,22 +9,24 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.lc.bangumidemo.KT.*
-import com.lc.bangumidemo.KT.PageUtil.startact
-import com.lc.bangumidemo.KT.PagesizeUtil.txttolist
-import com.lc.bangumidemo.MyRetrofit.ResClass.BookContent
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
 import com.lc.bangumidemo.Sqlite.*
-import com.lc.bangumidemo.Sqlite.Bookinsert.insert
+
 import com.ramotion.foldingcell.FoldingCell
 import kotlinx.android.synthetic.main.bookindex.*
+import org.jetbrains.anko.startActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 import java.io.InputStream
+import java.lang.Exception
 import java.net.URL
+import java.sql.SQLOutput
+import java.util.*
+
 class BookIndex : BaseActivity() {
    lateinit var contentView: LinearLayout
     override fun setRes(): Int {
@@ -33,11 +36,19 @@ class BookIndex : BaseActivity() {
         super.initlistener()
         startread.setOnClickListener {
 
-            loadbookdatatopage(this,bookDetail,0)
+            var db=MyDatabaseHelper(this,"bookstore",null,1)
+            var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+            Bookselect.selectalldata(db)
+            var returnsult=Bookselect.selectindex(db,selectindex)
+            Mapinit(this,returnsult)
+            Mapupdata(this,returnsult)
+            startActivity<testclass>()
+
         }
         cell_title_view2.setOnClickListener {
             findViewById<FoldingCell>(R.id.folding_cell2).toggle(false)
             contentView = findViewById(R.id.linear)
+
         }
     }
 
@@ -69,7 +80,33 @@ class BookIndex : BaseActivity() {
         listview.adapter=adapter
         listview.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this,data.getbooknum()[position],Toast.LENGTH_LONG).show()
-            loadbookdatatopage(this,data,position)
+            //先查询是否存在数据
+            var db=MyDatabaseHelper(this,"bookstore",null,1)
+            var selectdata = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+            var resultnow= Bookselect.selectbookdata(db,selectdata,position)
+            if (resultnow==null)loadbookdatatopage(this,data,position)
+            var resultpre= Bookselect.selectbookdata(db,selectdata,position-1)
+            if (resultpre==null)loadbookdatatopage(this,data,position-1)
+            var resultnex= Bookselect.selectbookdata(db,selectdata,position+1)
+            if (resultnex==null)loadbookdatatopage(this,data,position+1)
+            var updata=Bookindexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,
+                hardpageindex, hardcontentindex, bookDetail!!.list.size,position,0)
+            Bookupdata.updata(db,updata)
+            //索引更新，加载内容，重映射 (还剩重映射然后启动)
+            var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+            var returnsult=Bookselect.selectindex(db,selectindex)
+            val timerTask = object : TimerTask() {
+                override fun run() {
+                    Mapinit(this@BookIndex,returnsult)
+                    Mapupdata(this@BookIndex,returnsult)
+                    startActivity<testclass>()
+                }
+            }
+            val mTimer = Timer()
+            mTimer.schedule(timerTask, 2000)
+
+
+
         }
     }
     fun loaddata(data:BookDetail?)
@@ -84,6 +121,24 @@ class BookIndex : BaseActivity() {
         booktime.setText(data.data.time)
         booktag.setText(data.data.tag)
         text_view.setText(data.data.introduce)
+        //查询是否存在索引
+        var db=MyDatabaseHelper(this,"bookstore",null,1)
+        var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+        var returnsult=Bookselect.selectindex(db,selectindex)
+        if(returnsult==null)
+        {
+                loadbookdatatopage(this,data,0)
+                loadbookdatatopage(this,data,1)
+                loadbookdatatopage(this,data,2)
+                var insert=Bookindexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,0,0, bookDetail!!.list.size,0,0)
+                Bookinsert.insertindex(db,insert)
+        }else
+        {
+            hardcontentindex=returnsult.hardcontentindex
+            hardpageindex=returnsult.hardpageindex
+        }
+        //如果不存在则加载前三章
+        //插入索引
 
 
     }

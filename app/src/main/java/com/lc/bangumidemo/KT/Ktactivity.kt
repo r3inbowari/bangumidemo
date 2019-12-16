@@ -1,27 +1,28 @@
 package com.lc.bangumidemo.KT
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
-import com.lc.bangumidemo.Activity.SampleActivity
+import android.os.Bundle
+import com.lc.bangumidemo.Activity.testclass
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
-import com.lc.bangumidemo.R
-import com.lc.bangumidemo.ReadView.DoublePagesRender
-import com.lc.bangumidemo.ReadView.LoadBitmapTask
-import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
-import com.lc.bangumidemo.Sqlite.Nvdetil
-import com.lc.bangumidemo.Sqlite.SqlUtil
+
 import java.util.ArrayList
-var booknvdetail :Nvdetil?=Nvdetil(null,null,null,null,null,null,null)  //当前正在浏览书目信息
+
+
 var bookDetail : BookDetail?=null
 var imglist : MutableList<Bitmap> = ArrayList<Bitmap>()
 var list: MutableList<Bookdata> = mutableListOf()
-var pagetxt: MutableList<String> = ArrayList() //pagecontentlist
 var width=0      //初始屏幕宽度
 var height=0     //初始屏幕高度
 var fontsize =23 //默认字体大小
 var linesize =16 //默认显示行数
 var position:Int=0
+
+var hardpageindex=0
+var hardcontentindex=0
+
 
 
 /**
@@ -74,58 +75,6 @@ object PagesizeUtil{
         }
         return listpage
     }
-}
-
-
-object PageUtil {
-    //设置字体大小
-    fun setFontsize(size: Int) {
-        //SinglePageRender.mytextsize=size;
-        fontsize = size
-    }
-
-    init {
-        LoadBitmapTask.addpicture(R.drawable.background)
-        LoadBitmapTask.addpicture(R.drawable.background)
-        LoadBitmapTask.addpicture(R.drawable.background)
-    }
-
-    //设置背景
-    fun setbackground(ID: Int) {
-        //pagelist.clear();
-        LoadBitmapTask.addpicture(ID)
-        LoadBitmapTask.addpicture(ID)
-        LoadBitmapTask.addpicture(ID)
-    }
-    //装载一页数据
-    fun loadtxt(txt: String) {
-        pagetxt.add(txt)//加载一页数据
-    }
-
-    //装载并获取已装载页数
-    fun start(context: Context, st: List<String>) {
-        clean()
-        for (s in st) {
-            loadtxt(s)
-        }
-        DoublePagesRender.setpicturesize(st.size)
-        SampleActivity.loadtext(context)
-    }
-    //装载并获取已装载页数
-    fun startact(context: Context, st: List<String>) {
-       clean()
-        for (s in st) {
-            loadtxt(s)
-        }
-        DoublePagesRender.setpicturesize(pagetxt.size)
-        SampleActivity.loadtext(context)
-    }
-
-    fun clean() {
-        pagetxt.clear()
-    }
-
-
 }
 
 
