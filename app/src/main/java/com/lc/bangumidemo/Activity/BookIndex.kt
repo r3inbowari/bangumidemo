@@ -40,9 +40,17 @@ class BookIndex : BaseActivity() {
             var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
             Bookselect.selectalldata(db)
             var returnsult=Bookselect.selectindex(db,selectindex)
-            Mapinit(this,returnsult)
-            Mapupdata(this,returnsult)
-            startActivity<testclass>()
+            val timerTask = object : TimerTask() {
+                override fun run() {
+                    Mapinit(this@BookIndex,returnsult)
+                    Mapupdata(this@BookIndex,returnsult)
+                    Bookselect.selectalldata(db)
+                    db.close()
+                    startActivity<testclass>()
+                }
+            }
+            val mTimer = Timer()
+            mTimer.schedule(timerTask, 2000)
 
         }
         cell_title_view2.setOnClickListener {
@@ -85,12 +93,15 @@ class BookIndex : BaseActivity() {
             var selectdata = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
             var resultnow= Bookselect.selectbookdata(db,selectdata,position)
             if (resultnow==null)loadbookdatatopage(this,data,position)
-            var resultpre= Bookselect.selectbookdata(db,selectdata,position-1)
-            if (resultpre==null)loadbookdatatopage(this,data,position-1)
-            var resultnex= Bookselect.selectbookdata(db,selectdata,position+1)
+            if(position!=0)
+            {
+                var resultpre = Bookselect.selectbookdata(db, selectdata, position - 1)
+                if (resultpre == null) loadbookdatatopage(this, data, position - 1)
+            }
+                var resultnex= Bookselect.selectbookdata(db,selectdata,position+1)
             if (resultnex==null)loadbookdatatopage(this,data,position+1)
             var updata=Bookindexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,
-                hardpageindex, hardcontentindex, bookDetail!!.list.size,position,0)
+                position, 0, bookDetail!!.list.size,position,0)
             Bookupdata.updata(db,updata)
             //索引更新，加载内容，重映射 (还剩重映射然后启动)
             var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
@@ -99,14 +110,13 @@ class BookIndex : BaseActivity() {
                 override fun run() {
                     Mapinit(this@BookIndex,returnsult)
                     Mapupdata(this@BookIndex,returnsult)
+                    Bookselect.selectalldata(db)
+                    db.close()
                     startActivity<testclass>()
                 }
             }
             val mTimer = Timer()
             mTimer.schedule(timerTask, 2000)
-
-
-
         }
     }
     fun loaddata(data:BookDetail?)

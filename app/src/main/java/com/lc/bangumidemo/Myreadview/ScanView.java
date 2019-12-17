@@ -16,6 +16,9 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.lc.bangumidemo.Adapter.PageAdapter;
+import com.lc.bangumidemo.Adapter.ScanViewAdapter;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +32,7 @@ public class ScanView extends RelativeLayout
     private boolean isInit = true;
     // 滑动的时候存在两页可滑动，要判断是哪一页在滑动
     private boolean isPreMoving = true, isCurrMoving = true;
+    public static boolean INDEXTAGRIG=false,INDEXTAGLETE=false;
     // 当前是第几页
     private int index;
     private float lastX;
@@ -197,7 +201,7 @@ public class ScanView extends RelativeLayout
                 if (currPageLeft == (-mWidth))
                 {
                     index++;
-
+                    INDEXTAGRIG=true;
                     // 翻过一页，在底下添加一页，把最上层页面移除
                     addNextPage();
                 }
@@ -209,7 +213,7 @@ public class ScanView extends RelativeLayout
                 {
                     index--;
                     // 翻回一页，添加一页在最上层，隐藏在最左边
-
+                    INDEXTAGLETE=true;
                     addPrePage();
                 }
             }
@@ -259,7 +263,7 @@ public class ScanView extends RelativeLayout
 
     private void init()
     {
-        index = 1;
+        index = 0;
         timer = new Timer();
         mTask = new MyTimerTask(updateHandler);
     }

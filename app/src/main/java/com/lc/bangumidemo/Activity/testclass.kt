@@ -1,11 +1,12 @@
 package com.lc.bangumidemo.Activity
 
 import android.view.GestureDetector
+import android.view.KeyEvent
 import android.view.MotionEvent
 import com.lc.bangumidemo.KT.bookDetail
 import com.lc.bangumidemo.KT.hardcontentindex
 import com.lc.bangumidemo.KT.hardpageindex
-import com.lc.bangumidemo.Myreadview.ScanViewAdapter
+import com.lc.bangumidemo.Adapter.ScanViewAdapter
 
 
 import com.lc.bangumidemo.R
@@ -33,7 +34,7 @@ class testclass :BaseActivity(), GestureDetector.OnGestureListener {
         var db=MyDatabaseHelper(this,"bookstore",null,1)
         var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
         var returnsult= Bookselect.selectindex(db,selectindex)
-        var adapt=ScanViewAdapter(this,db,returnsult)
+        var adapt= ScanViewAdapter(this, db, returnsult)
         pageview.setAdapter(adapt)
     }
 
@@ -89,6 +90,17 @@ class testclass :BaseActivity(), GestureDetector.OnGestureListener {
 
     override fun onDestroy() {
         super.onDestroy()
+        destoryandsave()
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            destoryandsave()
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+    fun destoryandsave()
+    {
         Bookreadclean.clean(this)
         //查询是否存在索引
         var db=MyDatabaseHelper(this,"bookstore",null,1)
@@ -99,6 +111,5 @@ class testclass :BaseActivity(), GestureDetector.OnGestureListener {
         var destoryvalue=Bookindexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,
             hardpageindex, hardcontentindex, bookDetail!!.list.size, hardpageindex, hardcontentindex)
         Bookupdata.updata(db,destoryvalue)
-
     }
 }
