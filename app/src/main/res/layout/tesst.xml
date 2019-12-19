@@ -151,7 +151,6 @@
         android:visibility="visible"
         app:indicatorColor="#8D000000"
         android:id="@+id/avi"
-
         app:indicatorName="LineScalePulseOutIndicator" />
 
 </RelativeLayout>

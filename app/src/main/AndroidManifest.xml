@@ -37,6 +37,7 @@
         <activity android:name=".Activity.Searchactivity"></activity>
         <activity android:name=".Activity.BookDetailActivity"></activity>
         <activity android:name=".Activity.ReadActivity"></activity>
+        <activity android:name=".Activity.ErrorActivity"></activity>
     </application>
 
 

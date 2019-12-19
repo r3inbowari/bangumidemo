@@ -2,7 +2,10 @@ package com.lc.bangumidemo.Sqlite
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
+import com.lc.bangumidemo.Activity.ErrorActivity
 import com.lc.bangumidemo.KT.bookDetail
 import com.lc.bangumidemo.KT.hardcontentindex
 import com.lc.bangumidemo.KT.hardpageindex
@@ -10,12 +13,21 @@ import com.lc.bangumidemo.KT.hardpageindex
 object Bookselect {
     fun selectbookindex(context: Context): BookIndexclass? {
         //查询索引信息
-        var db=MyDatabaseHelper(context,"bookstore",null,1)
-        var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
-        var returnsult=Bookselect.selectindex(db,selectindex)
-        hardcontentindex = returnsult!!.hardcontentindex
-        hardpageindex =returnsult!!.hardpageindex
-        return returnsult
+        try {
+            var db=MyDatabaseHelper(context,"bookstore",null,1)
+            var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+            var returnsult=Bookselect.selectindex(db,selectindex)
+            hardcontentindex = returnsult!!.hardcontentindex
+            hardpageindex =returnsult!!.hardpageindex
+            db.close()
+            return returnsult
+        }catch (e:Exception){
+            var intent = Intent(context, ErrorActivity::class.java)
+            intent.putExtra("msg","查询不到索引")
+            intent.putExtra("tag","Bookselectindex")
+            context.startActivity(intent)
+        }
+        return null
     }
     fun selectindex(dbhelper: MyDatabaseHelper, data: Selectclass): BookIndexclass? {
         val db = dbhelper.writableDatabase

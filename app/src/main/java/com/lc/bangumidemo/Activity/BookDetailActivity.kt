@@ -3,11 +3,12 @@ package com.lc.bangumidemo.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -17,6 +18,7 @@ import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
 import com.lc.bangumidemo.Sqlite.*
+import com.lc.bangumidemo.Util.SingleClick
 import com.ramotion.foldingcell.FoldingCell
 import kotlinx.android.synthetic.main.bookindex.*
 import kotlinx.android.synthetic.main.bookindex.listview
@@ -28,13 +30,13 @@ import java.io.IOException
 import java.io.InputStream
 import java.lang.NullPointerException
 import java.net.URL
-import java.util.*
 import kotlin.Exception
 
 
 
 class BookDetailActivity : BaseActivity() {
     lateinit var contentView: LinearLayout
+    private var isload=false    //forbit touch more
     override fun setRes(): Int {
         return R.layout.bookindex
     }
@@ -50,12 +52,19 @@ class BookDetailActivity : BaseActivity() {
 
     }
 
+
     override fun initlistener() {
         super.initlistener()
-        startread.setOnClickListener {
-            lockscreen(true)
-            startActivity<ReadActivity>()
-        }
+        startread.setOnClickListener(object : View.OnClickListener{
+            @SingleClick
+            override fun onClick(v: View?) {
+                if(!isload) {
+                    isload = true
+                    lockscreen(true)
+                    startActivity<ReadActivity>()
+                }
+            }
+        })
         cell_title_view2.setOnClickListener {
             text_view.isVisible = false
             findViewById<FoldingCell>(R.id.folding_cell2).toggle(false)
@@ -82,19 +91,11 @@ class BookDetailActivity : BaseActivity() {
                     loaddata(st)
                     loadlist(st)
                 } catch (e: Exception) {
-                    val intent = Intent(this@BookDetailActivity, Searchactivity::class.java)
-                    var bundledata = Bundle()
-                    bundledata.putString("tag", "小说")
-                    intent.putExtras(bundle)
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    val timerTask = object : TimerTask() {
-                        override fun run() {
-                            startActivity(intent)
-                        }
-                    }
-                    val mTimer = Timer()
-                    mTimer.schedule(timerTask, 2000)
-
+                    var intent = Intent(this@BookDetailActivity, ErrorActivity::class.java)
+                    intent.putExtra("msg","书本信息无法请求")
+                    intent.putExtra("error",e.message)
+                    intent.putExtra("tag","BookDetailActivity")
+                    startActivity(intent)
                 }
 
 
@@ -103,17 +104,37 @@ class BookDetailActivity : BaseActivity() {
     }
 
     fun loadlist(data: BookDetail?) {
-        var adapter: ArrayAdapter<String> =
-            ArrayAdapter<String>(this, R.layout.textview, data?.getbooknum() as MutableList<String>)
-        listview.adapter = adapter
-        listview.setOnItemClickListener { _, _, position, _ ->
-            lockscreen(true)
-            Toast.makeText(this, data.getbooknum()[position], Toast.LENGTH_LONG).show()
-            var db = MyDatabaseHelper(this, "bookstore", null, 1)
-            var updata = BookIndexclass(null, bookDetail!!.data.author, bookDetail!!.data.name, position, 0, bookDetail!!.list.size, position, 0)
-            Bookupdata.updata(db, updata)
-            startActivity<ReadActivity>()
-        }
+             var adapter: ArrayAdapter<String> =
+             ArrayAdapter<String>(this, R.layout.textview, data?.getbooknum() as MutableList<String>)
+             listview.adapter = adapter
+             listview.setOnItemClickListener(object :AdapterView.OnItemClickListener{
+                 @SingleClick
+                 override fun onItemClick(
+                     parent: AdapterView<*>?,
+                     view: View?,
+                     position: Int,
+                     id: Long
+                 ) {
+                     if(!isload) {
+                         isload=true
+                         lockscreen(true)
+                         var db = MyDatabaseHelper(this@BookDetailActivity, "bookstore", null, 1)
+                         var updata = BookIndexclass(
+                             null,
+                             bookDetail!!.data.author,
+                             bookDetail!!.data.name,
+                             position,
+                             0,
+                             bookDetail!!.list.size,
+                             position,
+                             0
+                         )
+                         Bookupdata.updata(db, updata)
+                         db.close()
+                         startActivity<ReadActivity>()
+                     }
+                 }
+             })
     }
 
     fun loaddata(data: BookDetail?) {
@@ -156,6 +177,9 @@ class BookDetailActivity : BaseActivity() {
                     0
                 )
                 Bookinsert.insertindex(db, insert)
+                db.close()
+            }else{
+                db.close()
             }
         } catch (e: Exception) {
             Log.e("初始化书本信息错误", e.toString())
@@ -215,5 +239,15 @@ class BookDetailActivity : BaseActivity() {
             android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        try {
+            isload=false
+            bookDetail!!.data.url
+        }catch (e:Exception){
+            finish()
+        }
     }
 }

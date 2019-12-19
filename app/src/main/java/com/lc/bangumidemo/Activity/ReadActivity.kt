@@ -1,6 +1,7 @@
 package com.lc.bangumidemo.Activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.util.Log
 import android.view.GestureDetector
 import android.view.KeyEvent
@@ -63,7 +64,6 @@ class ReadActivity :BaseActivity() {
                         Log.e("RXJAVA","初始化完成进入视图")
                         initmyview()
                         avi.hide()
-                        Bookselect.selectalldata(MyDatabaseHelper(this@ReadActivity,"bookstore",null,1))
                     }
                 }
 
@@ -79,7 +79,8 @@ class ReadActivity :BaseActivity() {
         Bookselect.selectbookindex(this)
         //开始进行加载
         initloadbookdatatopage(this, bookDetail, hardpageindex)
-    }
+
+        }
 
     fun initmyview() {
 
@@ -152,5 +153,11 @@ class ReadActivity :BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        //查询索引信息
+        Bookselect.selectbookindex(this)
+        //开始进行加载
+        initloadbookdatatopage(this, bookDetail, hardpageindex)
+    }
 }

@@ -1,8 +1,12 @@
 package com.lc.bangumidemo.KT
 
+import android.accounts.NetworkErrorException
 import android.content.Context
+import android.content.Intent
 import android.os.Handler
 import android.os.Message
+import androidx.core.content.ContextCompat.startActivity
+import com.lc.bangumidemo.Activity.ErrorActivity
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookContent
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
@@ -21,43 +25,59 @@ fun loadbookdatatopage(context:Context, book: BookDetail?, positon:Int, data: Bo
             super.handleMessage(msg)
             when (msg.what) {
                 2 -> {
-                    var result= msg.obj as BookContent
-                    var string= result.getString()
-                    var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
-                    //把数据插入数据库
-                    var bookdatacls:BookDataclass
-                    var db =MyDatabaseHelper(context,"bookstore",null,1)
+                    try {
+                        var result= msg.obj as BookContent
+                        var string= result.getString()
+                        var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
+                        //把数据插入数据库
+                        var bookdatacls:BookDataclass
+                        var db =MyDatabaseHelper(context,"bookstore",null,1)
                         bookdatacls = BookDataclass(
                             bookDetail!!.data.author, bookDetail!!.data.name,string,list.size,
                             bookDetail!!.list.size, positon)
-                    Bookinsert.insertbookdata(db,bookdatacls)
-                    if (ispre) {updatapre(context,data,selectdata,start,end)}
-                    else {updatanext(context,data, selectdata, start, end)}
+                        Bookinsert.insertbookdata(db,bookdatacls)
+                        if (ispre) {updatapre(context,data,selectdata,start,end)}
+                        else {updatanext(context,data, selectdata, start, end)}
+                    }catch (e:Exception){
+                        var intent = Intent(context, ErrorActivity::class.java)
+                        intent.putExtra("msg","网络错误")
+                        intent.putExtra("error",e.message)
+                        intent.putExtra("tag","Threadkt_loadbookdatatopage")
+                        context.startActivity(intent)
+                    }
+
                 }
             }
         }
     }
     Thread(Runnable {
         var message = Message()
+        try {
+            val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
+            call.enqueue(object : Callback<BookContent> {
+                override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
+                    val st = response.body()
+                    println(st)
+                    message.obj = st
+                    message.what = 2
+                    mHamdler1.sendMessage(message)
+                }
 
-        val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
-        call.enqueue(object : Callback<BookContent> {
-            override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
-                val st = response.body()
-                println(st)
-                message.obj=st
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
-            override fun onFailure(call: Call<BookContent>, t: Throwable) {
-                println("连接失败")
-                message.obj=null
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
+                override fun onFailure(call: Call<BookContent>, t: Throwable) {
+                    println("连接失败")
+                    message.obj = null
+                    message.what = 2
+                    mHamdler1.sendMessage(message)
+                }
 
-        })
-
+            })
+        }catch (e:Exception){
+            var intent = Intent(context, ErrorActivity::class.java)
+            intent.putExtra("msg","网络错误或无效的书本信息企图去加载")
+            intent.putExtra("error",e.message)
+            intent.putExtra("tag","Threadkt_loadbookdatatopage")
+            context.startActivity(intent)
+        }
     }).start()
 }
 fun toloadbookdatatopage(context:Context, book: BookDetail?, positon:Int, data: BookIndexclass, selectdata: Selectclass, start:Int, end:Int,ispre:Boolean) {
@@ -67,52 +87,67 @@ fun toloadbookdatatopage(context:Context, book: BookDetail?, positon:Int, data: 
             super.handleMessage(msg)
             when (msg.what) {
                 2 -> {
-                    var result= msg.obj as BookContent
-                    var string= result.getString()
-                    var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
-                    //把数据插入数据库
-                    var bookdatacls:BookDataclass
-                    var db =MyDatabaseHelper(context,"bookstore",null,1)
-                    bookdatacls = BookDataclass(
-                        bookDetail!!.data.author, bookDetail!!.data.name,string,list.size,
-                        bookDetail!!.list.size, positon)
-                    Bookinsert.insertbookdata(db,bookdatacls)
-                    if (ispre) {
-                        initupdatapre(context,data,selectdata,start,end)
-                        RxBus.getInstance().send(2, RxBusBaseMessage(2,"finishmap"))
+                    try {
+                        var result= msg.obj as BookContent
+                        var string= result.getString()
+                        var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
+                        //把数据插入数据库
+                        var bookdatacls:BookDataclass
+                        var db =MyDatabaseHelper(context,"bookstore",null,1)
+                        bookdatacls = BookDataclass(
+                            bookDetail!!.data.author, bookDetail!!.data.name,string,list.size,
+                            bookDetail!!.list.size, positon)
+                        Bookinsert.insertbookdata(db,bookdatacls)
+                        if (ispre) {
+                            initupdatapre(context,data,selectdata,start,end)
+                            RxBus.getInstance().send(2, RxBusBaseMessage(2,"finishmap"))
+                        }
+                        else {
+                            initupdatanext(context,data, selectdata, start, end)
+                            if(data.pageindex==0)
+                            {
+                                RxBus.getInstance().send(2, RxBusBaseMessage(2,"finishmap"))
+                            }
+                        }
+                    }catch (e:Exception){
+                        var intent = Intent(context, ErrorActivity::class.java)
+                        intent.putExtra("msg","网络错误")
+                        intent.putExtra("error",e.message)
+                        intent.putExtra("tag","Threadkt_toloadbookdatatopage")
+                        context.startActivity(intent)
                     }
-                    else {
-                        initupdatanext(context,data, selectdata, start, end)
-                        if(data.pageindex==0)
-                        {
-                            RxBus.getInstance().send(2, RxBusBaseMessage(2,"finishmap"))}
 
-                    }
                 }
             }
         }
     }
     Thread(Runnable {
         var message = Message()
+        try {
+            val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
+            call.enqueue(object : Callback<BookContent> {
+                override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
+                    val st = response.body()
+                    println(st)
+                    message.obj=st
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
+                override fun onFailure(call: Call<BookContent>, t: Throwable) {
+                    println("连接失败")
+                    message.obj=null
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
 
-        val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
-        call.enqueue(object : Callback<BookContent> {
-            override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
-                val st = response.body()
-                println(st)
-                message.obj=st
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
-            override fun onFailure(call: Call<BookContent>, t: Throwable) {
-                println("连接失败")
-                message.obj=null
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
-
-        })
-
+            })
+        }catch (e:Exception){
+            var intent = Intent(context, ErrorActivity::class.java)
+            intent.putExtra("msg","无效的书本信息企图去加载")
+            intent.putExtra("error",e.message)
+            intent.putExtra("tag","Threadkt_toloadbookdatatopage")
+            context.startActivity(intent)
+        }
     }).start()
 }
 fun initloadbookdatatopage(context:Context,book: BookDetail?, positon:Int) {
@@ -122,42 +157,59 @@ fun initloadbookdatatopage(context:Context,book: BookDetail?, positon:Int) {
             super.handleMessage(msg)
             when (msg.what) {
                 2 -> {
-                    var result= msg.obj as BookContent
-                    var string= result.getString()
-                    var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
-                    //把数据插入数据库
-                    var bookdatacls:BookDataclass
-                    var db =MyDatabaseHelper(context,"bookstore",null,1)
-                    bookdatacls = BookDataclass(
-                        bookDetail!!.data.author, bookDetail!!.data.name,string,list.size,
-                        bookDetail!!.list.size, positon)
-                    Bookinsert.insertbookdata(db,bookdatacls)
-                    RxBus.getInstance().send(0, RxBusBaseMessage(0,"initpage"))
-
+                    var result:BookContent
+                    try {
+                         result= msg.obj as BookContent
+                        var string= result.getString()
+                        var list = PagesizeUtil.txttolist(string, context, fontsize, linesize)
+                        //把数据插入数据库
+                        var bookdatacls:BookDataclass
+                        var db =MyDatabaseHelper(context,"bookstore",null,1)
+                        bookdatacls = BookDataclass(
+                            bookDetail!!.data.author, bookDetail!!.data.name,string,list.size,
+                            bookDetail!!.list.size, positon)
+                        Bookinsert.insertbookdata(db,bookdatacls)
+                        RxBus.getInstance().send(0, RxBusBaseMessage(0,"initpage"))
+                    }catch (e:Exception){
+                        var intent = Intent(context, ErrorActivity::class.java)
+                        intent.putExtra("msg","网络错误")
+                        intent.putExtra("error",e.message)
+                        intent.putExtra("tag","Threadkt_initloadbookdatatopage")
+                        context.startActivity(intent)
+                    }
                 }
             }
         }
     }
     Thread(Runnable {
         var message = Message()
+        try {
+            val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
+            call.enqueue(object : Callback<BookContent> {
+                override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
+                    val st = response.body()
+                    println(st)
+                    message.obj=st
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
+                override fun onFailure(call: Call<BookContent>, t: Throwable) {
 
-        val call = Retrofitcall().getAPIServercontent().getCall(book!!.list[positon].url)
-        call.enqueue(object : Callback<BookContent> {
-            override fun onResponse(call: Call<BookContent>, response: Response<BookContent>) {
-                val st = response.body()
-                println(st)
-                message.obj=st
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
-            override fun onFailure(call: Call<BookContent>, t: Throwable) {
-                println("连接失败")
-                message.obj=null
-                message.what=2
-                mHamdler1.sendMessage(message)
-            }
+                    println("连接失败")
+                    message.obj=null
+                    message.what=2
+                    mHamdler1.sendMessage(message)
+                }
 
-        })
+            })
+        }catch (e:Exception){
+            var intent = Intent(context, ErrorActivity::class.java)
+            intent.putExtra("msg","网络错误或无效的书本信息企图去加载")
+            intent.putExtra("error",e.message)
+            intent.putExtra("tag","Threadkt_initloadbookdatatopage")
+            context.startActivity(intent)
+        }
+
 
     }).start()
 }

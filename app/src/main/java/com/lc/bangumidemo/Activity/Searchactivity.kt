@@ -14,12 +14,16 @@ import com.lc.bangumidemo.KT.list
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookResult
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
+
 import kotlinx.android.synthetic.main.search.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
+
+
+
 
 class Searchactivity :BaseActivity() {
     lateinit var searchItem:MenuItem
@@ -34,6 +38,7 @@ class Searchactivity :BaseActivity() {
         supportActionBar!!.setHomeButtonEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+        anmo.hide()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -56,6 +61,7 @@ class Searchactivity :BaseActivity() {
         when(tag){
             "小说"->{searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
+                    anmo.show()
                     list.clear()     //清除缓存
                     searchbook(query)//查找书本
                     searchView!!.clearFocus() // 收起键盘
@@ -82,6 +88,7 @@ class Searchactivity :BaseActivity() {
 
         var adapt = Recadapt(list,this)
         initlistener(adapt)
+        listview.setItemViewCacheSize(50)
         listview.setLayoutManager(LinearLayoutManager (this@Searchactivity))
         listview.adapter = adapt
         adapt.notifyDataSetChanged()
@@ -101,8 +108,11 @@ class Searchactivity :BaseActivity() {
                     start.putExtras(bundle)
                     startActivity(start)
                 }else{
-                    toast("连接失败，请检查你的网络")
-                    finish()
+                    var intent = Intent(this@Searchactivity, ErrorActivity::class.java)
+                    intent.putExtra("msg","连接失败，请检查你的网络")
+                    intent.putExtra("tag","Search_Activity")
+                    anmo.hide()
+                    startActivity(intent)
                 }
             }
         })
@@ -118,10 +128,15 @@ class Searchactivity :BaseActivity() {
                             var result= msg.obj as BookResult
                             if(result!=null)
                             {
+                                anmo.hide()
                                 getbookdata(result)
                             }
                         }catch (e:Exception){
-                            toast("请检查你的网络。").show()
+                            var intent = Intent(this@Searchactivity, ErrorActivity::class.java)
+                            intent.putExtra("msg","网络错误")
+                            intent.putExtra("tag","Search_Activity")
+                            anmo.hide()
+                            startActivity(intent)
                         }
 
                     }
@@ -158,11 +173,21 @@ class Searchactivity :BaseActivity() {
                 when (msg.what) {
 
                     3 -> {
-                        for(i in result!!.list)
-                        {
-                            list.add(i)
+                        try {
+                            for(i in result!!.list)
+                            {
+                                list.add(i)
+                            }
+                            initadapt()
+                        }catch (e:Exception){
+                            var intent = Intent(this@Searchactivity, ErrorActivity::class.java).setFlags(
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            intent.putExtra("msg","无效的书源")
+                            intent.putExtra("tag","Search_Activity")
+                            anmo.hide()
+                            startActivity(intent)
                         }
-                        initadapt()
+
                     }
                 }
             }
