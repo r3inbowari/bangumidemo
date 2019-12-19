@@ -1,6 +1,7 @@
 package com.lc.bangumidemo.Activity
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity:AppCompatActivity() {
@@ -40,5 +41,12 @@ abstract class BaseActivity:AppCompatActivity() {
      */
     open fun startaction(){}
 
+    open fun lockscreen(islock:Boolean){
+        if(islock) { this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE) }
+        else { this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE) } }
 
+    override fun onRestart() {
+        super.onRestart()
+        lockscreen(false)
+    }
 }

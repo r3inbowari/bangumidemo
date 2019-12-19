@@ -1,15 +1,12 @@
 package com.lc.bangumidemo.Activity
 
-import android.content.res.Resources
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
-import com.lc.bangumidemo.KT.height
-import com.lc.bangumidemo.KT.imglist
-import com.lc.bangumidemo.KT.width
+import com.lc.bangumidemo.KT.screenheight
+import com.lc.bangumidemo.KT.screenwidth
 import com.lc.bangumidemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
@@ -27,8 +24,8 @@ class Welcome : AppCompatActivity() ,ViewPropertyAnimatorListener{
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
        //获取屏幕数据
         var display = getWindowManager().getDefaultDisplay();
-        width=display.width
-        height=display.height
+        screenwidth=display.width
+        screenheight=display.height
         startActivity<MainActivity>()
         finish()
     }

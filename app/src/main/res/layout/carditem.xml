@@ -33,6 +33,7 @@
                             android:layout_height="wrap_content">
                         <ImageView
                             android:id="@+id/cover"
+                            android:src="@drawable/searchbook"
                             android:layout_width="150dp"
                             android:layout_height="150dp"/>
                         <LinearLayout
@@ -60,7 +61,7 @@
                                 android:id="@+id/tag"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="类型："
+                                android:text="类型:"
                                 android:textSize="15dp"
                                 />
                             <TextView

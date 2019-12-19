@@ -1,12 +1,10 @@
 package com.lc.bangumidemo.KT
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
-import android.os.Bundle
-import com.lc.bangumidemo.Activity.testclass
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
+import com.lc.bangumidemo.Sqlite.*
 
 import java.util.ArrayList
 
@@ -14,8 +12,8 @@ import java.util.ArrayList
 var bookDetail : BookDetail?=null
 var imglist : MutableList<Bitmap> = ArrayList<Bitmap>()
 var list: MutableList<Bookdata> = mutableListOf()
-var width=0      //初始屏幕宽度
-var height=0     //初始屏幕高度
+var screenwidth=0      //初始屏幕宽度
+var screenheight=0    //初始屏幕高度
 var fontsize =23 //默认字体大小
 var linesize =16 //默认显示行数
 var position:Int=0
@@ -32,7 +30,7 @@ object PagesizeUtil{
 
     fun getpagesize(context: Context, fontsize: Int, lintcount: Int): Int {
 
-        return getcount(context, width, height, fontsize, lintcount)
+        return getcount(context, screenwidth, screenheight, fontsize, lintcount)
     }
     fun getcount(context: Context, width: Int, height: Int, fontsize: Int, lincount: Int): Int {
 
@@ -76,5 +74,23 @@ object PagesizeUtil{
         return listpage
     }
 }
+fun destoryandsave(context: Context)
+{
+    Bookreadclean.clean(context)
+    //查询是否存在索引
+    var db= MyDatabaseHelper(context,"bookstore",null,1)
+    var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+    var returnsult= Bookselect.selectindex(db,selectindex)
+    if (returnsult != null) {
+        hardpageindex=returnsult.pageindex
+    }
+    if (returnsult != null) {
+        hardcontentindex=returnsult.contentindex
+    }
+    var destoryvalue= BookIndexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,
+        hardpageindex, hardcontentindex, bookDetail!!.list.size, hardpageindex, hardcontentindex)
+    Bookupdata.updata(db,destoryvalue)
+}
+
 
 

@@ -35,8 +35,8 @@
         </activity>
         <activity android:name=".Activity.MainActivity"></activity>
         <activity android:name=".Activity.Searchactivity"></activity>
-        <activity android:name=".Activity.BookIndex"></activity>
-        <activity android:name=".Activity.testclass"></activity>
+        <activity android:name=".Activity.BookDetailActivity"></activity>
+        <activity android:name=".Activity.ReadActivity"></activity>
     </application>
 
 

@@ -38,13 +38,12 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         println("position:$position")
-        holder.name.setText(list[position].name)
-        holder.time.setText(list[position].time)
-        holder.author.setText(list[position].author)
-        holder.num.setText(list[position].name)
-        holder.tag.setText(list[position].tag)
-        holder.statues.setText(list[position].status)
-
+        holder.name.setText("书名:"+list[position].name)
+        holder.time.setText("更新时间:"+list[position].time)
+        holder.author.setText("作者:"+list[position].author)
+        holder.num.setText("最新章节:"+list[position].num)
+        holder.tag.setText("类型:"+list[position].tag)
+        holder.statues.setText("状态:"+list[position].status)
         var introduce=list[position].introduce
         if (mOnItemClickListener != null) {
             holder.cardView.setOnClickListener {
@@ -67,11 +66,16 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
                     1 -> {
                         if(msg.obj!=null) {
                             val picture = msg.obj as Bitmap
-                            holder.cover.setImageBitmap(picture)
+                            if(picture!=null) {
+                                holder.cover.setImageBitmap(picture)
+                            }else{
+                                val dafultmap = BitmapFactory.decodeResource(context.resources, R.drawable.searchbook)
+                                holder.cover.setImageBitmap(dafultmap)
+                            }
                         }
                     }
                     else -> {
-                        val dafultmap = BitmapFactory.decodeResource(context.resources, R.drawable.simple_player_bg_normal)
+                        val dafultmap = BitmapFactory.decodeResource(context.resources, R.drawable.searchbook)
                         holder.cover.setImageBitmap(dafultmap)
                     }
                 }
@@ -79,26 +83,31 @@ class Recadapt(private val list: List<Bookdata>,private val context : Context) :
         }
         Thread(Runnable {
             val message = Message()
-            val urls = list[position].cover
-            var image: Bitmap? = null
-            var url: URL? = null
             try {
-                url = URL(urls)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
+                val urls = list[position].cover
+                var image: Bitmap? = null
+                var url: URL? = null
+                try {
+                    url = URL(urls)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
 
-            var io: InputStream? = null
-            try {
-                io = url!!.openConnection().getInputStream()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
+                var io: InputStream? = null
+                try {
+                    io = url!!.openConnection().getInputStream()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
 
-            image = BitmapFactory.decodeStream(io)
-            message.what = 1
-            message.obj = image
-            mHamdler1.sendMessage(message)
+                image = BitmapFactory.decodeStream(io)
+                message.what = 1
+                message.obj = image
+                mHamdler1.sendMessage(message)
+            }catch (e:Exception){
+                println(e)
+                mHamdler1.sendEmptyMessage(1)
+            }
             //还要处理异常
         }).start()
     }

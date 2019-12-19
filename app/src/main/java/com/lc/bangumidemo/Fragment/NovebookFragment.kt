@@ -14,7 +14,7 @@ class NovebookFragment :BaseFragment() {
     override fun initlistener() {
         super.initlistener()
         searchf.setOnClickListener {
-            var intent =Intent(activity,Searchactivity::class.java)
+            var intent =Intent(activity, Searchactivity::class.java)
             var bundle=Bundle()
             bundle.putString("tag","小说")
             intent.putExtras(bundle)

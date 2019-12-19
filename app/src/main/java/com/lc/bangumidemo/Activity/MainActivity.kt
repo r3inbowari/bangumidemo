@@ -14,13 +14,20 @@ class MainActivity :BaseActivity() {
         super.initview()
     }
 
+    override fun initaction() {
+        super.initaction()
+
+    }
+
     override fun initlistener() {
         super.initlistener()
         //bottombar监听用于切换fragment
         bottomBar.setOnTabSelectListener {
+
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.container, FragmentUtil.fragmentUtil.getFragment(it)!!,it.toString())
             transaction.commit()
+
 
         }
     }
@@ -28,5 +35,9 @@ class MainActivity :BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menumain,menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
     }
 }
