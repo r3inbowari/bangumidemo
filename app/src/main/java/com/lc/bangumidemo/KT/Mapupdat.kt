@@ -11,7 +11,7 @@ import com.lc.bangumidemo.RxBus.RxBus
 fun Mapinit(context: Context, data: BookIndexclass) {
     //查询数据
     var db = MyDatabaseHelper(context, "bookstore", null, 1)
-    Bookreadclean.clean(context)
+
     var selectclass = Selectclass(data.bookname, data.author, data.pagecount)
     var returnsult = Bookselect.selectbookdata(db, selectclass, data.pageindex)!!
     var list = PagesizeUtil.txttolist(returnsult.content, context, fontsize, linesize)

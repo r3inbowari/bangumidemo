@@ -133,16 +133,16 @@
                         android:layout_weight="1"
                         android:layout_height="50dp"
                         android:text="        目录"
-                        android:textColor="#000000"
+                        android:textColor="#726969"
                         android:gravity="left|center"
-                        android:textSize="22dp"
+                        android:textSize="20dp"
                         />
                     <TextView
-                        android:id="@+id/Size"
+                        android:id="@+id/listsize"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:layout_height="50dp"
-                        android:text="共???章 >  "
+
                         android:textColor="#726969"
                         android:gravity="right|center"
                         android:textSize="18dp"

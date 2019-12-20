@@ -153,7 +153,7 @@ class BookDetailActivity : BaseActivity() {
             booktime.setText("更新时间:" + data.data.time)
             booktag.setText("类型:" + data.data.tag)
             text_view.setText("简介:" + data.data.introduce)
-
+            listsize.setText("共${data.list.size}章 >  ")
 
             lockscreen(false)
             //查询是否存在索引

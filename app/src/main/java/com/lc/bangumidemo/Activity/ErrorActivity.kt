@@ -4,6 +4,7 @@ import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.lc.bangumidemo.KT.destoryandsave
 import com.lc.bangumidemo.R
+import com.lc.bangumidemo.Sqlite.Bookreadclean
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
@@ -17,13 +18,17 @@ class ErrorActivity : BaseActivity() {
          toast(intent.getStringExtra("msg"))
     }
 
+    override fun startaction() {
+        super.startaction()
+        //出错清理缓存数据
+        Bookreadclean.clean(this)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         var tag=intent.getStringExtra("tag")
         when(tag){
-                "BookDetailActivity"->{
-
-                }
+                "BookDetailActivity"->{ }
             "Read_Activity"->{ destoryandsave(this)}
         }
 

@@ -10,6 +10,7 @@ public class Bookreadclean {
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         db.delete("BookRead",null,null);
+        db.delete("BookData",null,null);
         db.close();
 
     }

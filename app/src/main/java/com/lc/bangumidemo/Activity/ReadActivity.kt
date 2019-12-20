@@ -155,9 +155,14 @@ class ReadActivity :BaseActivity() {
 
     override fun onResume() {
         super.onResume()
+
+    }
+
+    override fun onRestart() {
+        super.onRestart()
         //查询索引信息
         Bookselect.selectbookindex(this)
-        //开始进行加载
-        initloadbookdatatopage(this, bookDetail, hardpageindex)
+//        //开始进行加载
+//        initloadbookdatatopage(this, bookDetail, hardpageindex)
     }
 }

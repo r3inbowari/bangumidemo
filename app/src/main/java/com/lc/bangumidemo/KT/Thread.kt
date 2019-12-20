@@ -152,6 +152,7 @@ fun toloadbookdatatopage(context:Context, book: BookDetail?, positon:Int, data: 
 }
 fun initloadbookdatatopage(context:Context,book: BookDetail?, positon:Int) {
     position=positon
+    Bookreadclean.clean(context)
     val mHamdler1 = object : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
