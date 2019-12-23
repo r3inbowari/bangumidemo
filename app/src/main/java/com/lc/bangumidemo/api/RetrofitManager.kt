@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitManager {
 
-    val CONNECT_TIME_OUT = 200
-    val READ_TIME_OUT = 200
-    val WRITE_TIME_OUT = 200
+    val CONNECT_TIME_OUT = 10
+    val READ_TIME_OUT = 10
+    val WRITE_TIME_OUT = 10
 
     private const val BASE_URL = "http://api.pingcc.cn/"
     private var retrofit: Retrofit? = null

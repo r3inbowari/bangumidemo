@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.eschao:android-PageFlip:1.0.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71327d6c92f422cc839e3cc8d8f6ef42/android-PageFlip-1.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71327d6c92f422cc839e3cc8d8f6ef42/android-PageFlip-1.0.2/res" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/6374e8adc2014965a1cef07ba862af1b/android-PageFlip-1.0.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/6374e8adc2014965a1cef07ba862af1b/android-PageFlip-1.0.2/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,26 +1,29 @@
 package com.lc.bangumidemo.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lc.bangumidemo.Adapter.Recadapt
-import com.lc.bangumidemo.KT.imglist
 import com.lc.bangumidemo.KT.list
-import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookResult
 import com.lc.bangumidemo.MyRetrofit.Retrofit.Retrofitcall
 import com.lc.bangumidemo.R
+
 import kotlinx.android.synthetic.main.search.*
+import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.lang.Exception
+
+
+
 
 class Searchactivity :BaseActivity() {
     lateinit var searchItem:MenuItem
@@ -35,6 +38,7 @@ class Searchactivity :BaseActivity() {
         supportActionBar!!.setHomeButtonEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+        anmo.hide()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -57,6 +61,8 @@ class Searchactivity :BaseActivity() {
         when(tag){
             "小说"->{searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
+                    anmo.show()
+                    list.clear()     //清除缓存
                     searchbook(query)//查找书本
                     searchView!!.clearFocus() // 收起键盘
                     return true
@@ -82,22 +88,32 @@ class Searchactivity :BaseActivity() {
 
         var adapt = Recadapt(list,this)
         initlistener(adapt)
+        listview.setItemViewCacheSize(50)
         listview.setLayoutManager(LinearLayoutManager (this@Searchactivity))
         listview.adapter = adapt
-        listview.adapter?.notifyDataSetChanged()
+        adapt.notifyDataSetChanged()
     }
     private fun initlistener(adapter:Recadapt) {
         adapter.setOnItemClickListener(object :Recadapt.OnItemClickListener{
             override fun onItemClick(view: View, position: Int) {
+                lockscreen(true)
                 //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 //view!!.findViewById<CardView>(R.id.cardview)
                 var urls= list[position].url
-                var start=Intent(this@Searchactivity,BookIndex::class.java)
-                var bundle=Bundle()
-                bundle.putString("url",urls)
-                bundle.putInt("position",position)
-                start.putExtras(bundle)
-                startActivity(start)
+                if(urls!=null) {
+                    var start = Intent(this@Searchactivity, BookDetailActivity::class.java)
+                    var bundle = Bundle()
+                    bundle.putString("url", urls)
+                    bundle.putInt("position", position)
+                    start.putExtras(bundle)
+                    startActivity(start)
+                }else{
+                    var intent = Intent(this@Searchactivity, ErrorActivity::class.java)
+                    intent.putExtra("msg","连接失败，请检查你的网络")
+                    intent.putExtra("tag","Search_Activity")
+                    anmo.hide()
+                    startActivity(intent)
+                }
             }
         })
     }
@@ -108,39 +124,48 @@ class Searchactivity :BaseActivity() {
                 super.handleMessage(msg)
                 when (msg.what) {
                     2 -> {
-                        var result= msg.obj as BookResult
-                        getpicture(result)
-                    }
-                    else -> {
+                        try {
+                            var result= msg.obj as BookResult
+                            if(result!=null)
+                            {
+                                anmo.hide()
+                                getbookdata(result)
+                            }
+                        }catch (e:Exception){
+                            var intent = Intent(this@Searchactivity, ErrorActivity::class.java)
+                            intent.putExtra("msg","网络错误")
+                            intent.putExtra("tag","Search_Activity")
+                            anmo.hide()
+                            startActivity(intent)
+                        }
+
                     }
                 }
             }
-
         }
         Thread(Runnable {
             var message = Message()
+            val call = name?.let { Retrofitcall().getAPIService().getCall(it) }
+            if (call != null) {
+                call.enqueue(object : Callback<BookResult> {
+                    override fun onResponse(call: Call<BookResult>, response: Response<BookResult>) {
+                        val st = response.body()
+                        println(st)
+                        message.obj=st
+                        message.what=2
+                        mHamdler1.sendMessage(message)
+                    }
 
-            val call = Retrofitcall().getAPIService().getCall(name)
-            call.enqueue(object : Callback<BookResult> {
-                override fun onResponse(call: Call<BookResult>, response: Response<BookResult>) {
-                    val st = response.body()
-                    println(st)
-                    message.obj=st
-                    message.what=2
-                    mHamdler1.sendMessage(message)
-                }
-                override fun onFailure(call: Call<BookResult>, t: Throwable) {
-                    println("连接失败")
-                    message.obj=null
-                    message.what=2
-                    mHamdler1.sendMessage(message)
-                }
-
-            })
-
+                    override fun onFailure(call: Call<BookResult>, t: Throwable) {
+                        message.obj=null
+                        message.what=2
+                        mHamdler1.sendMessage(message)
+                    }
+                })
+            }
         }).start()
     }
-    fun getpicture(result:BookResult) {
+    fun getbookdata(result:BookResult) {
 
         val hand = object : Handler() {
             override fun handleMessage(msg: Message) {
@@ -148,29 +173,31 @@ class Searchactivity :BaseActivity() {
                 when (msg.what) {
 
                     3 -> {
-                        var map = msg.obj as MutableList<Bitmap>
-                        for (i in map) {
-                            imglist.add(i)
+                        try {
+                            for(i in result!!.list)
+                            {
+                                list.add(i)
+                            }
+                            initadapt()
+                        }catch (e:Exception){
+                            var intent = Intent(this@Searchactivity, ErrorActivity::class.java).setFlags(
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            intent.putExtra("msg","无效的书源")
+                            intent.putExtra("tag","Search_Activity")
+                            anmo.hide()
+                            startActivity(intent)
                         }
-                        for(i in result!!.list)
-                        {
-                            list.add(i)
 
-                        }
-                        initadapt()
-                    }
-                    else -> {
                     }
                 }
             }
-
         }
         Thread(Runnable {
-            var bitmaplist : MutableList<Bitmap> = ArrayList<Bitmap>()
-            var ms=Message()
-            ms.obj=bitmaplist
-            ms.what=3
-            hand.sendMessage(ms)
+            hand.sendEmptyMessage(3)
         }).start()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
     }
 }

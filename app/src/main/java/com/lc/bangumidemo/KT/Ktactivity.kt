@@ -2,25 +2,25 @@ package com.lc.bangumidemo.KT
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.lc.bangumidemo.Activity.SampleActivity
 import com.lc.bangumidemo.MyRetrofit.ResClass.BookDetail
 import com.lc.bangumidemo.MyRetrofit.ResClass.Bookdata
-import com.lc.bangumidemo.R
-import com.lc.bangumidemo.ReadView.DoublePagesRender
-import com.lc.bangumidemo.ReadView.LoadBitmapTask
-import com.lc.bangumidemo.Sqlite.MyDatabaseHelper
-import com.lc.bangumidemo.Sqlite.Nvdetil
-import com.lc.bangumidemo.Sqlite.SqlUtil
+import com.lc.bangumidemo.Sqlite.*
+
 import java.util.ArrayList
+
 
 var bookDetail : BookDetail?=null
 var imglist : MutableList<Bitmap> = ArrayList<Bitmap>()
 var list: MutableList<Bookdata> = mutableListOf()
-var pagetxt: MutableList<String> = ArrayList() //pagecontentlist
-var width=0      //初始屏幕宽度
-var height=0     //初始屏幕高度
+var screenwidth=0      //初始屏幕宽度
+var screenheight=0    //初始屏幕高度
 var fontsize =23 //默认字体大小
 var linesize =16 //默认显示行数
+var position:Int=0
+
+var hardpageindex=0
+var hardcontentindex=0
+
 
 
 /**
@@ -30,7 +30,7 @@ object PagesizeUtil{
 
     fun getpagesize(context: Context, fontsize: Int, lintcount: Int): Int {
 
-        return getcount(context, width, height, fontsize, lintcount)
+        return getcount(context, screenwidth, screenheight, fontsize, lintcount)
     }
     fun getcount(context: Context, width: Int, height: Int, fontsize: Int, lincount: Int): Int {
 
@@ -74,55 +74,23 @@ object PagesizeUtil{
         return listpage
     }
 }
-
-
-object PageUtil {
-    //设置字体大小
-    fun setFontsize(size: Int) {
-        //SinglePageRender.mytextsize=size;
-        fontsize = size
+fun destoryandsave(context: Context)
+{
+    Bookreadclean.clean(context)
+    //查询是否存在索引
+    var db= MyDatabaseHelper(context,"bookstore",null,1)
+    var selectindex = Selectclass(bookDetail!!.data.name, bookDetail!!.data.author, bookDetail!!.list.size)
+    var returnsult= Bookselect.selectindex(db,selectindex)
+    if (returnsult != null) {
+        hardpageindex=returnsult.pageindex
     }
-
-    init {
-        LoadBitmapTask.addpicture(R.drawable.background)
-        LoadBitmapTask.addpicture(R.drawable.background)
-        LoadBitmapTask.addpicture(R.drawable.background)
+    if (returnsult != null) {
+        hardcontentindex=returnsult.contentindex
     }
-
-    //设置背景
-    fun setbackground(ID: Int) {
-        //pagelist.clear();
-        LoadBitmapTask.addpicture(ID)
-        LoadBitmapTask.addpicture(ID)
-        LoadBitmapTask.addpicture(ID)
-    }
-    //装载并获取已装载页数
-    fun getpagecount(context: Context): Int {
-        var record=
-            Nvdetil(null,bookDetail?.data?.name, bookDetail?.data?.author,null,null,null,null)
-        var dbhelper = MyDatabaseHelper(context, "bookindexssss.db", null, 1)
-        val res:Nvdetil=SqlUtil.findbookisexist(dbhelper,record)
-        res.pagesize?.let { DoublePagesRender.setpicturesize(it) }
-        return res.pagesize!!
-    }
-    //装载一页数据
-    fun loadtxt(txt: String) {
-        pagetxt.add(txt)//加载一页数据
-    }
-
-    //装载并获取已装载页数
-    fun startact(context: Context, st: List<String>) {
-        for (s in st) {
-            loadtxt(s)
-        }
-        getpagecount(context)
-        SampleActivity.loadtext(context)
-    }
-
-    fun clean() {
-        pagetxt.clear()
-    }
-
-
+    var destoryvalue= BookIndexclass(null, bookDetail!!.data.author, bookDetail!!.data.name,
+        hardpageindex, hardcontentindex, bookDetail!!.list.size, hardpageindex, hardcontentindex)
+    Bookupdata.updata(db,destoryvalue)
 }
+
+
 

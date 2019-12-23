@@ -4,40 +4,31 @@
     android:id="@+id/linear"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_index"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:alpha="0.3"
+        android:background="@mipmap/indexbackground"
         />
     <androidx.cardview.widget.CardView
         android:id="@+id/detailview"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="#ffffff"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="20dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="false"
-        app:contentPadding="10dp"
-        app:contentPaddingLeft="10dp"
-        app:contentPaddingRight="10dp"
-        app:contentPaddingTop="10dp"
-        app:contentPaddingBottom="10dp"
+        android:foreground = "?attr/selectableItemBackground"
         >
+        <ImageView
+            android:background="@mipmap/indexbackground"
+            android:alpha="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/bookcover"
                 android:layout_width="150dp"
@@ -92,13 +83,11 @@
                     android:text="更新时间："
                     android:textSize="15dp"
                     />
-            </LinearLayout>
+            </LinearLayout
+>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <ScrollView
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -121,7 +110,7 @@
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="300dp">
+                        android:layout_height="400dp">
                         <ListView
                             android:id="@+id/listview"
                             android:layout_width="match_parent"
@@ -144,16 +133,16 @@
                         android:layout_weight="1"
                         android:layout_height="50dp"
                         android:text="        目录"
-                        android:textColor="#000000"
+                        android:textColor="#726969"
                         android:gravity="left|center"
-                        android:textSize="22dp"
+                        android:textSize="20dp"
                         />
                     <TextView
-                        android:id="@+id/Size"
+                        android:id="@+id/listsize"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:layout_height="50dp"
-                        android:text="共???章 >  "
+
                         android:textColor="#726969"
                         android:gravity="right|center"
                         android:textSize="18dp"
@@ -163,31 +152,19 @@
                 ​
             </com.ramotion.foldingcell.FoldingCell>
 
-
-            <ScrollView
+            <com.borjabravo.readmoretextview.ReadMoreTextView
+                android:id="@+id/text_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <FrameLayout
                 android:layout_weight="1"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+            </FrameLayout>
 
-                    <com.borjabravo.readmoretextview.ReadMoreTextView
-                        android:id="@+id/text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
-                    //放置其他view
-
-                </LinearLayout>
-            </ScrollView>
-
-
-        </LinearLayout>
-    </ScrollView>
 
 
     <LinearLayout
@@ -221,5 +198,7 @@
     </LinearLayout>
 
 
+
+</LinearLayout>
 
 </LinearLayout>
