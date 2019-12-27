@@ -15,7 +15,7 @@ Proxy:
 
 Proxy Group:
 #- { name: AIR B, type: select, proxies: ["极游官网jiyou.cloud", "极游B-JP-I", "极游B-JP-II", "极游B-HK", "极游B-SG"]}
-- { name: auto, type: url-test, proxies: ["极游官网jiyou.cloud", "极游B-JP-I", "极游B-JP-II", "极游B-HK", "极游B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
+- { name: AIR B, type: url-test, proxies: ["极游官网jiyou.cloud", "极游B-JP-I", "极游B-JP-II", "极游B-HK", "极游B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
 #- { name: fallback, type: fallback, proxies: ["极游官网jiyou.cloud", "极游B-JP-I", "极游B-JP-II", "极游B-HK", "极游B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
 Rule:
 - DOMAIN-SUFFIX,google.com,AIR B
