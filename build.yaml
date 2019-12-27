@@ -20,10 +20,10 @@ Proxy Group:
 Rule:
 - DOMAIN-SUFFIX,google.com,AIR B
 - DOMAIN-KEYWORD,google,AIR B
-- DOMAIN-SUFFIX,imomoe.com,AIR B
-- DOMAIN-SUFFIX,imomoe.jp,AIR B
-- DOMAIN-SUFFIX,imomoe.io,AIR B
-- DOMAIN-KEYWORD,imomoe,AIR B
+- DOMAIN-SUFFIX,imomoe.com,DIRECT
+- DOMAIN-SUFFIX,imomoe.jp,DIRECT
+- DOMAIN-SUFFIX,imomoe.io,DIRECT
+- DOMAIN-KEYWORD,imomoe,DIRECT
 - DOMAIN,google.com,AIR B
 - DOMAIN-SUFFIX,ad.com,REJECT
 - IP-CIDR,127.0.0.0/8,DIRECT
