@@ -4,7 +4,7 @@ redir-port: 0
 allow-lan: false
 mode: Rule
 log-level: info
-external-controller: '0.0.0.0:9090'
+external-controller: '0.0.0.0:7892'
 secret: ''
 Proxy:
 - { name: "B-JP-I",type: vmess,server: bjpa.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: bjpa.zhileshu.com }, tls: true}
@@ -14,7 +14,7 @@ Proxy:
 
 Proxy Group:
 #- { name: AIR B, type: select, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"]}
-- { name: AIR B, type: url-test, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
+- { name: AIR B, type: url-test, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"], url: http://www.gstatic.com/generate_204, interval: 1000 }
 #- { name: fallback, type: fallback, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
 Rule:
 - DOMAIN-SUFFIX,cn,DIRECT
