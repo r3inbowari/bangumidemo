@@ -7,15 +7,17 @@ log-level: info
 external-controller: '0.0.0.0:7892'
 secret: ''
 Proxy:
+- { name: "B-IN",type: vmess,server: b-sg.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: b-sg.zhileshu.com }, tls: true}
 - { name: "B-JP-I",type: vmess,server: bjpa.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: bjpa.zhileshu.com }, tls: true}
-- { name: "B-JP-II",type: vmess,server: bjpa.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: bjpb.zhileshu.com }, tls: true}
+- { name: "B-JP-II",type: vmess,server: bjpb.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: bjpb.zhileshu.com }, tls: true}
+- { name: "B-JP-III",type: vmess,server: bjpc.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: bjpc.zhileshu.com }, tls: true}
 - { name: "B-HK",type: vmess,server: itunes.apple.com.ajax.microsoft.com.www.bing.com.hkt08.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: itunes.apple.com.ajax.microsoft.com.www.bing.com.hkt08.zhileshu.com }, tls: true}
-- { name: "B-SG",type: vmess,server: b-sg.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: b-sg.zhileshu.com }, tls: true}
+- { name: "B-US",type: vmess,server: usb.zhileshu.com,port: 443,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto, network: ws, ws-headers: { Host: usb.zhileshu.com }, tls: true}
+- { name: "B-30-IPLC",type: vmess,server: itunes.apple.com.ajax.microsoft.com.www.bing.com.iplc.zhileshu.com,port: 20001,uuid: B2173CC6-75BD-B002-C2AC-64AB8CFECD1D,alterId: 0,cipher: auto}
 
 Proxy Group:
-- { name: AIR B, type: select, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"]}
-#- { name: AIR B, type: url-test, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"], url: http://www.gstatic.com/generate_204, interval: 1000 }
-#- { name: fallback, type: fallback, proxies: ["B-JP-I", "B-JP-II", "B-HK", "B-SG"], url: http://www.gstatic.com/generate_204, interval: 300 }
+- { name: AIR B, type: select, proxies: ["B-IN", "B-JP-I", "B-JP-II", "B-JP-III", "B-HK", "B-US", "B-30-IPLC"]}
+
 Rule:
 - DOMAIN-SUFFIX,cn,DIRECT
 - DOMAIN-KEYWORD,-cn,DIRECT
